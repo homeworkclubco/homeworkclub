@@ -4,12 +4,16 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tinaDirective from "./astro-tina-directive/register"
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
-	integrations: [mdx(), sitemap(), react(), tinaDirective()],
-	redirects: {
-		'/admin': '/admin/index.html'
-	  }
+  site: 'https://example.com',
+  integrations: [mdx(), sitemap(), react(), tinaDirective()],
+
+  redirects: {
+      '/admin': '/admin/index.html'
+	  },
+
+  adapter: netlify()
 });
