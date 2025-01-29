@@ -59,7 +59,7 @@ const page = defineCollection({
     }),
     seoTitle: z.string(),
     body: z.any(),
-    blocks: z.array(z.object({})),
+    // blocks: z.array(z.object({})).optional,
   }),
 })
 export const collections = { blog, page };
