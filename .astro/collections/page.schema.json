@@ -32,22 +32,13 @@
           "type": "string"
         },
         "body": {},
-        "blocks": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {},
-            "additionalProperties": false
-          }
-        },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
         "tinaInfo",
-        "seoTitle",
-        "blocks"
+        "seoTitle"
       ],
       "additionalProperties": false
     }

@@ -8,6 +8,10 @@ export const GlobalConfigCollection: Collection = {
   format: "json",
   ui: {
     global: true,
+    allowedActions: {
+      create: false,
+      delete: false,
+    }
   },
   fields: [
     {

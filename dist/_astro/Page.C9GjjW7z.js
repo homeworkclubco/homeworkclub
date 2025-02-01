@@ -1,0 +1,1 @@
+import{u as n,j as t,t as s,T as d}from"./index.DrbKM_-6.js";import"./index.DfiKcS6F.js";const l=a=>{const{data:i}=n({query:a.query,variables:a.variables,data:a.data}),e=i.page;return t.jsx("main",{children:t.jsx("div",{"data-tina-field":s(e,"body"),children:t.jsx(d,{content:e.body})})})};export{l as default};

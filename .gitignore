@@ -4,3 +4,6 @@ node_modules
 .cache
 .next/
 .env
+.astro/
+.netlify/
+.vercel/

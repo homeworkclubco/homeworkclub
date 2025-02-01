@@ -1,6 +1,6 @@
 import React from "react";
 
-export const VideoHeroBlock01 = ({ data }) => {
+export const HcHeroBlock = ({ data }) => {
   return (
     <>
       <h1 data-accent-color="orange">{data.title}</h1>
@@ -8,9 +8,9 @@ export const VideoHeroBlock01 = ({ data }) => {
   );
 };
 
-export const videoHeroBlock01Schema = {
-  name: "videoHeroBlock01",
-  label: "Video Hero 1",
+export const HcHeroBlockSchema = {
+  name: "hcHeroBlock",
+  label: "Hero",
   ui: {},
   fields: [
     {

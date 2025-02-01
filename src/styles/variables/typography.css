@@ -1,0 +1,35 @@
+/* @use 'node_modules/utopia-core-scss/src/utopia' as utopia; */
+
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1660,18,1.333,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  @utopia typeScale({
+    minFontSize: 16,
+    maxFontSize: 18,
+    minTypeScale: 1.2,
+    maxTypeScale: 1.333,
+    positiveSteps: 6,
+    negativeSteps: 2,
+    prefix: "step",
+  });
+}
+
+:root {
+  --letter-spacing-tight: -0.05em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-loose: 0.05em;
+
+  --line-height-tight: 1;
+  --line-height-snug: 1.25;
+  --line-height: 1.5;
+  --line-height-loose: 1.75;
+
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+}
