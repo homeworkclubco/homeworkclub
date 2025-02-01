@@ -1,5 +1,6 @@
 import type { Collection } from "tinacms";
 import { videoHeroBlock01Schema } from "../blocks/VideoHeroBlock01";
+import { HcHeroBlockSchema } from "../blocks/HcHeroBlock";
 
 export const PageCollection: Collection = {
   name: "page",
@@ -31,7 +32,7 @@ export const PageCollection: Collection = {
       ui: {
         visualSelector: true,
       },
-      templates: [videoHeroBlock01Schema],
+      templates: [videoHeroBlock01Schema, HcHeroBlockSchema],
     }
   ]
 }

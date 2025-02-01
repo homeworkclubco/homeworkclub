@@ -1,24 +1,15 @@
 import React from "react";
 import { tinaField } from "tinacms/dist/react";
+import { getBlockName } from "../utils";
 
 // Blocks
 import { VideoHeroBlock01 } from "./VideoHeroBlock01";
+import { HcHeroBlock } from "./HcHeroBlock";
 
 // @todo: do we even want the map? Could just pass the block directly
 const blockComponents = {
   VideoHeroBlock01: VideoHeroBlock01,
-};
-
-/**
- * Extracts the block class name from the typename.
- * Splits the typename string at "Blocks" and returns the part after it.
- *
- * @param {string} typename - The typename string to be processed.
- * @returns {string} - The extracted block class name.
- */
-const getBlockComponent = (typename) => {
-  const parts = typename.split("Blocks");
-  return parts.length > 1 ? parts[1] : "";
+  HcHeroBlock: HcHeroBlock,
 };
 
 export const Blocks = (props) => {
@@ -30,7 +21,7 @@ export const Blocks = (props) => {
               <section
                 key={i}
                 data-tina-field={tinaField(block)}
-                className={`block ${getBlockComponent(block.__typename)}`}
+                className={`block ${getBlockName(block.__typename)}`}
               >
                 <Block {...block} />
               </section>
@@ -42,7 +33,7 @@ export const Blocks = (props) => {
 };
 
 const Block = (block) => {
-  const blockClass = getBlockComponent(block.__typename);
+  const blockClass = getBlockName(block.__typename);
   const Component = blockComponents[blockClass];
   if (Component) {
     return <Component data={block} />;
