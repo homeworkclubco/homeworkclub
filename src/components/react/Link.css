@@ -1,0 +1,31 @@
+/* -------------------------------------------------------------------------- /
+  Link
+/ -------------------------------------------------------------------------- */
+
+
+
+.link {
+  color: var(--color-link);
+  display:  inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-loose);
+  transition: var(--easing);
+  
+  &:hover,
+  &:focus-visible {
+    color: var(--color-link-hover);
+  }
+}
+
+/* -------------------------------------------------------------------------- /
+  HC Specific
+/ -------------------------------------------------------------------------- */
+
+
+.link[data-type="scribble-circle"] {
+
+}

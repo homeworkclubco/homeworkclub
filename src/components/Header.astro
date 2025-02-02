@@ -2,67 +2,358 @@
 import HeaderLink from "./HeaderLink.astro";
 import config from "../content/config/config.json";
 import IconLink from "./react/IconLink";
+import AccessibleIcon from "../components/common/AccessibleIcon.astro";
+import Logo from "/public/images/homework-club-logo-colour-dark.svg";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+if (!config || !config.nav || !config.nav) {
+  throw new Error("Navigation data is missing or incomplete");
+}
+
+const links = config.nav;
+const currentPath = Astro.url.pathname;
 ---
 
-<header>
-	<nav>
-		<h2><a href="/">{config.seo.title}</a></h2>
-		<div class="internal-links">
-			{
-				config.nav.map((nav) => (
-					<HeaderLink href={nav.link}>{nav.title}</HeaderLink>
-				))
-			}
-		</div>
-		<div class="social-links">
-			{
-				config?.contactLinks?.map((link) => {
-					return (
-						<IconLink {...link} />
-					);
-				})
-			}
-		</div>
-	</nav>
-</header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
+<header class="header">
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+  <div class="container">
+    <div class="header-start">
+      <a class="logo" href="/" title="Go to homepage">
+        <Image src={Logo} alt="Logo" />
+      </a>
+    </div>
+    <div class="headerEnd">
+      <nav aria-label="Main Navigation">
+        <button
+          id="menu-toggle"
+          aria-expanded="false"
+          aria-controls="navMenu"
+          aria-label="Open navigation menu"
+        >
+          <AccessibleIcon label="Open Menu">
+            <Icon name="ph:list" />
+          </AccessibleIcon>
+        </button>
+        <div
+          id="navMenu"
+          class="nav-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          data-state="closed"
+        >
+          <div class="nav-content">
+            <button id="close-menu" aria-label="Close navigation menu">
+              <AccessibleIcon label="Close navigation menu">
+                <Icon name="ph:x" />
+              </AccessibleIcon>
+            </button>
+            <ul role="list">
+              {
+                links.map((link) => (
+                  <li>
+                    <a
+                      href={link.link}
+                      aria-current={currentPath === link.link ? "page" : undefined}
+                      target={link.target || "_self"}
+                    >
+                      {link.title}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- <nav>
+    <h2><a href="/">{config.seo.title}</a></h2>
+    <div class="internal-links">
+      {config.nav.map((nav) => <HeaderLink href={nav.link}>{nav.title}</HeaderLink>)}
+    </div>
+    <div class="social-links">
+      {
+        config?.contactLinks?.map((link) => {
+          return <IconLink {...link} />;
+        })
+      }
+    </div>
+  </nav> -->
+  </div>
+</header>
+
+<style>
+  @import "../styles/variables/breakpoints.css";
+
+  header {
+    position: fixed;
+    width: 100vw;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: var(--step-1);
+    }
+  }
+
+  .logo {
+    display: flex;
+    img {
+      height: var(--step-2);
+      width: auto;
+    }
+  }
+
+  #menu-toggle,
+  #close-menu {
+    --_color: var(--text-secondary);
+    --_color-hover: var(--grey-12);
+    --_background: var(--grey-a2);
+    --_size: var(--step-3);
+    color: var(--_color);
+    background: none;
+    border: none;
+    border-radius: var(--radius-rounded);
+    background: var(--_background);
+    font-size: var(--step-1);
+    width: var(--_size);
+    height: var(--_size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: var(--_color-hover);
+    }
+
+    @media (--sm) {
+      display: none;
+    }
+  }
+
+  #close-menu {
+    --_color: var(--accent-3);
+    --_color-hover: var(--white);
+    align-self: flex-end;
+  }
+
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+
+    &[data-state="closed"] {
+      animation: fadeOutDown 0.3s forwards;
+      @media (--sm) {
+        animation: unset;
+      }
+    }
+
+    &[data-state="open"] {
+      display: flex;
+      animation: fadeInUp 0.3s forwards;
+
+      @media (--sm) {
+        animation: unset;
+      }
+    }
+
+    @media (--sm) {
+      display: block;
+      position: static;
+      background: none;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOutDown {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    to {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+  }
+
+  .nav-content {
+    background: var(--accent-9);
+    color: var(--white);
+    padding: var(--space-m);
+    width: 100vw;
+    height: 100%;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+
+    @media (--sm) {
+      padding: 0;
+      max-width: none;
+      width: auto;
+      height: auto;
+      background: none;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    gap: var(--space-m);
+
+    @media (--sm) {
+      flex-direction: row;
+      margin: 0;
+    }
+  }
+
+  nav a {
+    --_padding: var(--space-2xs);
+    color: var(--accent-3);
+    font-size: var(--step-5);
+    font-weight: var(--font-weight-medium);
+    display: block;
+    padding: 0 var(--_padding);
+    margin: calc(var(--_padding) * -1);
+    transition: 0.3s all var(--easing);
+
+    &:hover,
+    &:focus {
+      @media (--md) {
+        color: var(--accent-9);
+      }
+    }
+
+    &[aria-current="page"] {
+      color: var(--text-primary);
+      /* text-decoration: underline;
+      text-decoration-thickness: 0.15em; */
+    }
+
+    @media (--sm) {
+      color: var(--text-secondary);
+      font-size: var(--step-1);
+
+      &:hover,
+      &:focus {
+        color: var(--accent-9);
+      }
+    }
+  }
+
+  /* Boring stuff */
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: #000;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    font-size: var(--step-0);
+
+    &:focus {
+      top: 0;
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const closeMenu = document.getElementById("close-menu");
+    const navMenu = document.getElementById("navMenu");
+    const focusableElements = navMenu?.querySelectorAll("button, a");
+
+    function openMenu() {
+      if (!menuToggle || !navMenu || !closeMenu) return;
+
+      menuToggle.setAttribute("aria-expanded", "true");
+      // navMenu.style.display = "block";
+      navMenu.dataset.state = "open";
+      document.body.style.overflow = "hidden";
+      closeMenu.focus();
+    }
+
+    function closeMenuFunc() {
+      if (!menuToggle || !navMenu) return;
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      // navMenu.style.display = "none";
+      navMenu.dataset.state = "closed";
+      document.body.style.overflow = "";
+      menuToggle.focus();
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (!focusableElements) return;
+
+      if (event.key === "Escape") {
+        closeMenuFunc();
+      } else if (event.key === "Tab") {
+        const firstFocusableElement = focusableElements[0] as HTMLElement;
+        const lastFocusableElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+        if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+          event.preventDefault();
+          firstFocusableElement.focus();
+        } else if (event.shiftKey && document.activeElement === firstFocusableElement) {
+          event.preventDefault();
+          lastFocusableElement.focus();
+        }
+      }
+    }
+
+    menuToggle?.addEventListener("click", openMenu);
+    closeMenu?.addEventListener("click", closeMenuFunc);
+    navMenu?.addEventListener("keydown", handleKeyDown);
+
+    navMenu?.addEventListener("click", (event) => {
+      if (event.target === navMenu) {
+        closeMenuFunc();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (!navMenu || !menuToggle) return;
+
+      if (window.innerWidth > 768) {
+        // navMenu.style.display = "";
+        navMenu.dataset.state = "open";
+        document.body.style.overflow = "";
+      } else if (menuToggle.getAttribute("aria-expanded") === "false") {
+        // navMenu.style.display = "none";
+        navMenu.dataset.state = "closed";
+      }
+    });
+  });
+</script>

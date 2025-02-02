@@ -1,17 +1,22 @@
-import { describe } from "node:test";
 import React from "react";
-import { FieldDescription } from "tinacms";
+import { Button } from "../../../src/components/react/Button";
+import { Link } from "../../../src/components/react/Link";
 
 export const Actions = ({ className, actions }) => {
+  if (!actions) return null;
+  
   return (
     <div className="actions">
       {actions &&
         actions.map((action, index) => {
-          return (
-            <a key={index} href={action.link} className={action.type}>
-              {action.label}
-            </a>
-          );
+          let element = null;
+          if (action.type === "button") {
+            element = <Button key={index} button={action} />;
+          }
+          if (action.type === "link") {
+            element = <Link key={index} link={action} />;
+          }
+          return element;
         })}
     </div>
   );
@@ -43,7 +48,7 @@ export const actionsSchema = {
       type: "string",
       options: [
         { label: "Button", value: "button" },
-        // { label: 'Link', value: 'link' },
+        { label: 'Link', value: 'link' },
       ],
       ui: {
         component: "button-toggle",

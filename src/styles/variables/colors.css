@@ -4,16 +4,237 @@
 
   Neutral is the gray scale.
   Accent is the primary color.
+  Secondary is the secondary color.
+
+  https://www.radix-ui.com/colors/custom
 / -------------------------------------------------------------------------- */
 
-@import "@radix-ui/colors/sand.css";
-@import "@radix-ui/colors/sand-alpha.css";
+:root {
+  --white: #ffffff;
+  --black: #1C1917;
+}
 
-@import "@radix-ui/colors/pink.css";
-@import "@radix-ui/colors/pink-alpha.css";
+/* -------------------------------------------------------------------------- /
+  Custom colours from Radix generator
+/ -------------------------------------------------------------------------- */
 
-@import "@radix-ui/colors/orange.css";
-@import "@radix-ui/colors/orange-alpha.css";
+:root, .light, .light-theme {
+  --hc-neutral-1: #fdfcfa;
+  --hc-neutral-2: #fbf9f5;
+  --hc-neutral-3: #f3f0ea;
+  --hc-neutral-4: #ebe8e2;
+  --hc-neutral-5: #e2dfd9;
+  --hc-neutral-6: #d8d5cf;
+  --hc-neutral-7: #cac7c1;
+  --hc-neutral-8: #b6b3ad;
+  --hc-neutral-9: #aaa7a1;
+  --hc-neutral-10: #9f9c96;
+  --hc-neutral-11: #6a6863;
+  --hc-neutral-12: #2b2925;
+
+  --hc-neutral-a1: #99660005;
+  --hc-neutral-a2: #9966000a;
+  --hc-neutral-a3: #6e490015;
+  --hc-neutral-a4: #5035001d;
+  --hc-neutral-a5: #3d290026;
+  --hc-neutral-a6: #30200030;
+  --hc-neutral-a7: #2619003e;
+  --hc-neutral-a8: #1c130052;
+  --hc-neutral-a9: #1911005e;
+  --hc-neutral-a10: #160f0069;
+  --hc-neutral-a11: #0c08009c;
+  --hc-neutral-a12: #070500da;
+
+  --hc-neutral-contrast: #fff;
+  --hc-neutral-surface: #faf8f3cc;
+  --hc-neutral-indicator: #aaa7a1;
+  --hc-neutral-track: #aaa7a1;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    :root, .light, .light-theme {
+      --hc-neutral-1: oklch(99.1% 0.0025 84.57);
+      --hc-neutral-2: oklch(98.1% 0.0057 84.57);
+      --hc-neutral-3: oklch(95.6% 0.0086 84.57);
+      --hc-neutral-4: oklch(93% 0.0086 84.57);
+      --hc-neutral-5: oklch(90.4% 0.0086 84.57);
+      --hc-neutral-6: oklch(87.3% 0.0086 84.57);
+      --hc-neutral-7: oklch(83.1% 0.0086 84.57);
+      --hc-neutral-8: oklch(76.7% 0.0086 84.57);
+      --hc-neutral-9: oklch(72.9% 0.0086 84.57);
+      --hc-neutral-10: oklch(69.3% 0.0086 84.57);
+      --hc-neutral-11: oklch(51.7% 0.0086 84.57);
+      --hc-neutral-12: oklch(28.2% 0.0086 84.57);
+
+      --hc-neutral-a1: color(display-p3 0.6078 0.4118 0.0196 / 0.02);
+      --hc-neutral-a2: color(display-p3 0.6118 0.4157 0.0235 / 0.04);
+      --hc-neutral-a3: color(display-p3 0.3569 0.2588 0.0078 / 0.079);
+      --hc-neutral-a4: color(display-p3 0.2549 0.1804 0.0039 / 0.11);
+      --hc-neutral-a5: color(display-p3 0.1961 0.1412 0.0078 / 0.146);
+      --hc-neutral-a6: color(display-p3 0.1529 0.1098 0.0039 / 0.185);
+      --hc-neutral-a7: color(display-p3 0.1176 0.0863 0.0039 / 0.24);
+      --hc-neutral-a8: color(display-p3 0.0902 0.0667 0.0039 / 0.318);
+      --hc-neutral-a9: color(display-p3 0.0784 0.0549 0.0039 / 0.365);
+      --hc-neutral-a10: color(display-p3 0.0706 0.051 0.0039 / 0.408);
+      --hc-neutral-a11: color(display-p3 0.0471 0.0314 0 / 0.612);
+      --hc-neutral-a12: color(display-p3 0.0275 0.0196 0 / 0.855);
+
+      --hc-neutral-contrast: #fff;
+      --hc-neutral-surface: color(display-p3 0.9765 0.9725 0.9529 / 0.8);
+      --hc-neutral-indicator: oklch(72.9% 0.0086 84.57);
+      --hc-neutral-track: oklch(72.9% 0.0086 84.57);
+    }
+  }
+}
+
+:root, .light, .light-theme {
+  --pink-1: #fffcfd;
+  --pink-2: #fff7f9;
+  --pink-3: #ffe8ef;
+  --pink-4: #ffdae6;
+  --pink-5: #ffcbdb;
+  --pink-6: #f9bcce;
+  --pink-7: #f1a8bf;
+  --pink-8: #e98ead;
+  --pink-9: #e5007d;
+  --pink-10: #d40070;
+  --pink-11: #d30070;
+  --pink-12: #690737;
+
+  --pink-a1: #ff005503;
+  --pink-a2: #ff004008;
+  --pink-a3: #ff004e17;
+  --pink-a4: #ff005325;
+  --pink-a5: #ff004f34;
+  --pink-a6: #e9004543;
+  --pink-a7: #d6004457;
+  --pink-a8: #ce004671;
+  --pink-a9: #e5007d;
+  --pink-a10: #d40070;
+  --pink-a11: #d30070;
+  --pink-a12: #650031f8;
+
+  --pink-contrast: #fff;
+  --pink-surface: #fff5f8cc;
+  --pink-indicator: #e5007d;
+  --pink-track: #e5007d;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    :root, .light, .light-theme {
+      --pink-1: oklch(99.4% 0.0039 358.8);
+      --pink-2: oklch(98.2% 0.0094 358.8);
+      --pink-3: oklch(95.4% 0.0302 358.8);
+      --pink-4: oklch(92.5% 0.0474 358.8);
+      --pink-5: oklch(89.3% 0.0619 358.8);
+      --pink-6: oklch(85.5% 0.0747 358.8);
+      --pink-7: oklch(80.8% 0.091 358.8);
+      --pink-8: oklch(75% 0.115 358.8);
+      --pink-9: oklch(59.8% 0.2432 358.8);
+      --pink-10: oklch(55.5% 0.2392 358.8);
+      --pink-11: oklch(55.3% 0.2392 358.8);
+      --pink-12: oklch(34.2% 0.1323 358.8);
+
+      --pink-a1: color(display-p3 0.6745 0.0235 0.349 / 0.012);
+      --pink-a2: color(display-p3 0.8784 0.0196 0.2667 / 0.032);
+      --pink-a3: color(display-p3 0.8235 0.0118 0.2824 / 0.087);
+      --pink-a4: color(display-p3 0.8353 0.0078 0.3098 / 0.142);
+      --pink-a5: color(display-p3 0.8431 0.0078 0.2863 / 0.197);
+      --pink-a6: color(display-p3 0.7725 0.0039 0.2471 / 0.255);
+      --pink-a7: color(display-p3 0.7059 0.0039 0.2314 / 0.33);
+      --pink-a8: color(display-p3 0.6824 0.0039 0.2392 / 0.428);
+      --pink-a9: color(display-p3 0.7843 0 0.3765 / 0.824);
+      --pink-a10: color(display-p3 0.7137 0 0.3255 / 0.84);
+      --pink-a11: color(display-p3 0.7098 0 0.3294 / 0.844);
+      --pink-a12: color(display-p3 0.3255 0 0.149 / 0.926);
+
+      --pink-contrast: #fff;
+      --pink-surface: color(display-p3 0.9922 0.9608 0.9725 / 0.8);
+      --pink-indicator: oklch(59.8% 0.2432 358.8);
+      --pink-track: oklch(59.8% 0.2432 358.8);
+    }
+  }
+}
+
+:root, .light, .light-theme {
+  --teal-1: #f9fefe;
+  --teal-2: #f1fbfb;
+  --teal-3: #d9faf8;
+  --teal-4: #c2f5f2;
+  --teal-5: #a9edea;
+  --teal-6: #8fe1dd;
+  --teal-7: #6bd1cd;
+  --teal-8: #15bcb8;
+  --teal-9: #19beba;
+  --teal-10: #00b2af;
+  --teal-11: #007f7c;
+  --teal-12: #003f3d;
+
+  --teal-a1: #00d5d506;
+  --teal-a2: #00b7b70e;
+  --teal-a3: #00ded126;
+  --teal-a4: #00d6c93d;
+  --teal-a5: #00cac156;
+  --teal-a6: #00bbb270;
+  --teal-a7: #00b0a994;
+  --teal-a8: #00b6b2ea;
+  --teal-a9: #00b7b3e6;
+  --teal-a10: #00b2af;
+  --teal-a11: #007f7c;
+  --teal-a12: #003f3d;
+
+  --teal-contrast: #fff;
+  --teal-surface: #eefafacc;
+  --teal-indicator: #19beba;
+  --teal-track: #19beba;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    :root, .light, .light-theme {
+      --teal-1: oklch(99.4% 0.0059 192.1);
+      --teal-2: oklch(98.1% 0.0112 192.1);
+      --teal-3: oklch(96.1% 0.0337 192.1);
+      --teal-4: oklch(93.5% 0.0523 192.1);
+      --teal-5: oklch(90% 0.0676 192.1);
+      --teal-6: oklch(85.6% 0.0802 192.1);
+      --teal-7: oklch(79.7% 0.0953 192.1);
+      --teal-8: oklch(72.1% 0.1212 192.1);
+      --teal-9: oklch(72.6% 0.1212 192.1);
+      --teal-10: oklch(69% 0.1212 192.1);
+      --teal-11: oklch(52.9% 0.1212 192.1);
+      --teal-12: oklch(32.8% 0.0627 192.1);
+
+      --teal-a1: color(display-p3 0.0196 0.8039 0.8039 / 0.02);
+      --teal-a2: color(display-p3 0.0235 0.6745 0.6745 / 0.048);
+      --teal-a3: color(display-p3 0.0078 0.8157 0.7843 / 0.126);
+      --teal-a4: color(display-p3 0 0.7843 0.7451 / 0.2);
+      --teal-a5: color(display-p3 0.0039 0.7216 0.6941 / 0.279);
+      --teal-a6: color(display-p3 0.0039 0.6588 0.6275 / 0.365);
+      --teal-a7: color(display-p3 0.0039 0.6078 0.5843 / 0.479);
+      --teal-a8: color(display-p3 0 0.5843 0.5725 / 0.659);
+      --teal-a9: color(display-p3 0 0.5922 0.5804 / 0.651);
+      --teal-a10: color(display-p3 0 0.5451 0.5412 / 0.691);
+      --teal-a11: color(display-p3 0 0.349 0.3412 / 0.785);
+      --teal-a12: color(display-p3 0 0.1686 0.1647 / 0.91);
+
+      --teal-contrast: #fff;
+      --teal-surface: color(display-p3 0.9412 0.9804 0.9804 / 0.8);
+      --teal-indicator: oklch(72.6% 0.1212 192.1);
+      --teal-track: oklch(72.6% 0.1212 192.1);
+    }
+  }
+}
+
+
+/* -------------------------------------------------------------------------- /
+  
+/ -------------------------------------------------------------------------- */
+
+
+
 
 
 /* This is how radix inserts dark vars */
@@ -23,42 +244,75 @@
 
 
 :root,
-[data-accent-color] {
+[data-accent-color],
+[data-background-color] {
+  --background-color: var(--white);
+
   --color-text: var(--neutral-12);
   --color-text-secondary: var(--neutral-9);
 
+  /* --color-text-onAccent: var(--accent-1);
+  --color-text-accent: var(--accent-9); */
 
-  --color-text-onAccent: var(--accent-1);
-  --color-text-accent: var(--accent-9);
+  --color-link: var(--accent-9);
+  --color-link-hover: var(--accent-10); 
+
+  color: var(--color-text);
+  background-color: var(--background-color);
+}
+
+
+[data-background-color="accent"] {
+  --background-color: var(--accent-9);
+
+  --color-text: var(--accent-1);
+  --color-text-secondary: var(--accent-3);
+  --color-link: var(--accent-1);
+  --color-link-hover: var(--accent-2);
+}
+
+[data-background-color="accent-soft"] {
+  --color-text: var(--accent-a12);
+  --color-text-secondary: var(--accent-a11);
+
+  --background-color: var(--accent-3);
+}
+
+[data-background-color="neutral"] {
+  --background-color: var(--neutral-12);
+}
+
+[data-background-color="neutral-soft"] {
+  --background-color: var(--neutral-2);
 }
 
 /* This is how radix inserts light vars */
 :root, .light, .light-theme {
-  --neutral-1: var(--sand-1);
-  --neutral-2: var(--sand-2);
-  --neutral-3: var(--sand-3);
-  --neutral-4: var(--sand-4);
-  --neutral-5: var(--sand-5);
-  --neutral-6: var(--sand-6);
-  --neutral-7: var(--sand-7);
-  --neutral-8: var(--sand-8);
-  --neutral-9: var(--sand-9);
-  --neutral-10: var(--sand-10);
-  --neutral-11: var(--sand-11);
-  --neutral-12: var(--sand-12);
+  --neutral-1: var(--hc-neutral-1);
+  --neutral-2: var(--hc-neutral-2);
+  --neutral-3: var(--hc-neutral-3);
+  --neutral-4: var(--hc-neutral-4);
+  --neutral-5: var(--hc-neutral-5);
+  --neutral-6: var(--hc-neutral-6);
+  --neutral-7: var(--hc-neutral-7);
+  --neutral-8: var(--hc-neutral-8);
+  --neutral-9: var(--hc-neutral-9);
+  --neutral-10: var(--hc-neutral-10);
+  --neutral-11: var(--hc-neutral-11);
+  --neutral-12: var(--hc-neutral-12);
 
-  --neutral-a1: var(--sand-a1);
-  --neutral-a2: var(--sand-a2);
-  --neutral-a3: var(--sand-a3);
-  --neutral-a4: var(--sand-a4);
-  --neutral-a5: var(--sand-a5);
-  --neutral-a6: var(--sand-a6);
-  --neutral-a7: var(--sand-a7);
-  --neutral-a8: var(--sand-a8);
-  --neutral-a9: var(--sand-a9);
-  --neutral-a10: var(--sand-a10);
-  --neutral-a11: var(--sand-a11);
-  --neutral-a12: var(--sand-a12);
+  --neutral-a1: var(--hc-neutral-a1);
+  --neutral-a2: var(--hc-neutral-a2);
+  --neutral-a3: var(--hc-neutral-a3);
+  --neutral-a4: var(--hc-neutral-a4);
+  --neutral-a5: var(--hc-neutral-a5);
+  --neutral-a6: var(--hc-neutral-a6);
+  --neutral-a7: var(--hc-neutral-a7);
+  --neutral-a8: var(--hc-neutral-a8);
+  --neutral-a9: var(--hc-neutral-a9);
+  --neutral-a10: var(--hc-neutral-a10);
+  --neutral-a11: var(--hc-neutral-a11);
+  --neutral-a12: var(--hc-neutral-a12);
 
   /* Default accent color */
   --accent-1: var(--pink-1);
@@ -88,7 +342,7 @@
   --accent-a12: var(--pink-a12);
 }
 
-[data-accent-color="pink"] {
+[data-accent-color="primary"] {
   --accent-1: var(--pink-1);
   --accent-2: var(--pink-2);
   --accent-3: var(--pink-3);
@@ -116,32 +370,32 @@
   --accent-a12: var(--pink-a12);
 }
 
-[data-accent-color="orange"] {
-  --accent-1: var(--orange-1);
-  --accent-2: var(--orange-2);
-  --accent-3: var(--orange-3);
-  --accent-4: var(--orange-4);
-  --accent-5: var(--orange-5);
-  --accent-6: var(--orange-6);
-  --accent-7: var(--orange-7);
-  --accent-8: var(--orange-8);
-  --accent-9: var(--orange-9);
-  --accent-10: var(--orange-10);
-  --accent-11: var(--orange-11);
-  --accent-12: var(--orange-12);
+[data-accent-color="secondary"] {
+  --accent-1: var(--teal-1);
+  --accent-2: var(--teal-2);
+  --accent-3: var(--teal-3);
+  --accent-4: var(--teal-4);
+  --accent-5: var(--teal-5);
+  --accent-6: var(--teal-6);
+  --accent-7: var(--teal-7);
+  --accent-8: var(--teal-8);
+  --accent-9: var(--teal-9);
+  --accent-10: var(--teal-10);
+  --accent-11: var(--teal-11);
+  --accent-12: var(--teal-12);
 
-  --accent-a1: var(--orange-a1);
-  --accent-a2: var(--orange-a2);
-  --accent-a3: var(--orange-a3);
-  --accent-a4: var(--orange-a4);
-  --accent-a5: var(--orange-a5);
-  --accent-a6: var(--orange-a6);
-  --accent-a7: var(--orange-a7);
-  --accent-a8: var(--orange-a8);
-  --accent-a9: var(--orange-a9);
-  --accent-a10: var(--orange-a10);
-  --accent-a11: var(--orange-a11);
-  --accent-a12: var(--orange-a12);
+  --accent-a1: var(--teal-a1);
+  --accent-a2: var(--teal-a2);
+  --accent-a3: var(--teal-a3);
+  --accent-a4: var(--teal-a4);
+  --accent-a5: var(--teal-a5);
+  --accent-a6: var(--teal-a6);
+  --accent-a7: var(--teal-a7);
+  --accent-a8: var(--teal-a8);
+  --accent-a9: var(--teal-a9);
+  --accent-a10: var(--teal-a10);
+  --accent-a11: var(--teal-a11);
+  --accent-a12: var(--teal-a12);
 
   
 }

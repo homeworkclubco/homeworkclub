@@ -1,0 +1,26 @@
+/* -------------------------------------------------------------------------- /
+  Shadows
+/ -------------------------------------------------------------------------- */
+
+
+[data-background-color="accent"][data-accent-color="secondary"] {
+  --shadow-color: 179deg 85% 25%;
+  --shadow-elevation-low:
+    0.3px 0.5px 0.6px hsl(var(--shadow-color) / 0.37),
+    0.4px 0.8px 0.9px -1.5px hsl(var(--shadow-color) / 0.33),
+    1px 1.9px 2.3px -3px hsl(var(--shadow-color) / 0.29);
+  --shadow-elevation-medium:
+    0.3px 0.5px 0.6px hsl(var(--shadow-color) / 0.39),
+    0.7px 1.4px 1.6px -1px hsl(var(--shadow-color) / 0.36),
+    1.9px 3.8px 4.5px -2px hsl(var(--shadow-color) / 0.33),
+    4.8px 9.6px 11.3px -3px hsl(var(--shadow-color) / 0.29);
+  --shadow-elevation-high:
+    0.3px 0.5px 0.6px hsl(var(--shadow-color) / 0.36),
+    1.1px 2.3px 2.7px -0.4px hsl(var(--shadow-color) / 0.35),
+    2.2px 4.3px 5.1px -0.9px hsl(var(--shadow-color) / 0.33),
+    3.7px 7.3px 8.6px -1.3px hsl(var(--shadow-color) / 0.32),
+    6.1px 12.2px 14.3px -1.7px hsl(var(--shadow-color) / 0.3),
+    9.8px 19.7px 23.1px -2.1px hsl(var(--shadow-color) / 0.29),
+    15.2px 30.5px 35.8px -2.6px hsl(var(--shadow-color) / 0.27),
+    22.8px 45.5px 53.4px -3px hsl(var(--shadow-color) / 0.26);
+}

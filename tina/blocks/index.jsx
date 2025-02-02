@@ -5,11 +5,13 @@ import { getBlockName } from "../utils";
 // Blocks
 import { VideoHeroBlock01 } from "./VideoHeroBlock01";
 import { HcHeroBlock } from "./HcHeroBlock";
+import { HcThreeColCardsBlock } from "./HcThreeColCardsBlock";
 
 // @todo: do we even want the map? Could just pass the block directly
 const blockComponents = {
   VideoHeroBlock01: VideoHeroBlock01,
   HcHeroBlock: HcHeroBlock,
+  HcThreeColCardsBlock: HcThreeColCardsBlock,
 };
 
 export const Blocks = (props) => {
@@ -21,7 +23,6 @@ export const Blocks = (props) => {
               <section
                 key={i}
                 data-tina-field={tinaField(block)}
-                className={`block ${getBlockName(block.__typename)}`}
               >
                 <Block {...block} />
               </section>

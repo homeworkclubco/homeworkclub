@@ -7,15 +7,18 @@
   "nav": [
     {
       "title": "Home",
-      "link": "/"
+      "link": "/",
+      "target": "_self"
     },
     {
       "title": "Blog",
-      "link": "/blog"
+      "link": "/blog",
+      "target": "_self"
     },
     {
       "title": "About",
-      "link": "/about"
+      "link": "/about",
+      "target": "_self"
     }
   ],
   "contactLinks": [

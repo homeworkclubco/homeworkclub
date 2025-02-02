@@ -20,8 +20,8 @@ export default defineConfig({
   token: process.env.TINA_TOKEN,
 
   build: {
-    outputFolder: "admin",
-    publicFolder: "public",
+    outputFolder: "admin", // within the public folder
+    publicFolder: "public", // The public asset folder for your framework
   },
   media: {
     tina: {

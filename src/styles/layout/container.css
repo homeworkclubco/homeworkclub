@@ -1,0 +1,28 @@
+/* -------------------------------------------------------------------------- /
+  Container
+/ -------------------------------------------------------------------------- */
+
+:root {
+  --grid-gutter: var(--space-s-l);
+  --grid-max-width: 110rem; /* 1760px */
+}
+
+.container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+  width: 100%;
+  display: grid;
+  gap: var(--grid-gutter);
+
+  &[data-center-content] {
+    place-items: center;
+  }
+
+  [data-type="fullbleed"] {
+    padding-inline: 0;
+    max-width: unset;
+    /* This creates a 14 column layout, col 1 goes to the edge, 12 columns in the container, column 14 to the edge */
+    grid-template-columns: [gutter-l] minmax(0, 1fr) [main] repeat(12, minmax(0, calc((var(--grid-max-width) / 12) - var(--grid-gutter)))) [gutter-r] minmax(0, 1fr);
+  }
+}

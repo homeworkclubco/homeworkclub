@@ -7,8 +7,8 @@ export const HcHeroBlock = ({ data }) => {
   const blockName = getBlockName(data.__typename);
 
   return (
-    <>
-      <div className="container">
+    <div className={`section block ${blockName}`}>
+      <div className="container" data-center-content>
         <svg className="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1394.7 746.97">
           <path
             className="a"
@@ -45,14 +45,12 @@ export const HcHeroBlock = ({ data }) => {
         </svg>
 
         <Actions className="actions" actions={data.actions} />
-
-
       </div>
-    </>
+    </div>
   );
 };
 
-export const HcHeroBlockSchema = {
+export const hcHeroBlockSchema = {
   name: "hcHeroBlock",
   label: "Homework Club Hero",
   ui: {},

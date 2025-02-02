@@ -1,0 +1,37 @@
+---
+interface Props {
+  label: string;
+  class?: string;
+}
+
+const { label, class: className = "" } = Astro.props;
+---
+
+<span class={`AccessibleIcon ${className}`}>
+  <slot />
+  <span class="AccessibleIcon__label">{label}</span>
+</span>
+
+<style>
+  .AccessibleIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .AccessibleIcon__wrapper {
+    display: inline-flex;
+  }
+
+  .AccessibleIcon__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>

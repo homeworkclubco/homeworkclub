@@ -5,7 +5,7 @@
 :root {
   @utopia typeScale({
     minFontSize: 16,
-    maxFontSize: 18,
+    maxFontSize: 20,
     minTypeScale: 1.2,
     maxTypeScale: 1.333,
     positiveSteps: 6,
@@ -15,6 +15,10 @@
 }
 
 :root {
+  --font-family-body: 'Interstate', sans-serif;
+  --font-family-heading: 'Bright', sans-serif;
+  --font-family-alt: 'Permanent Marker', sans-serif;
+
   --letter-spacing-tight: -0.05em;
   --letter-spacing-normal: 0;
   --letter-spacing-loose: 0.05em;
@@ -31,5 +35,17 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-black: 900;
+}
+
+/* -------------------------------------------------------------------------- /
+  Custom fonts
+/ -------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'brightregular';
+    src: url('/fonts/bright-webfont.woff2') format('woff2'),
+         url('/fonts/bright-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
 }

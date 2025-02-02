@@ -1,10 +1,13 @@
 import React from "react";
+import { getBlockName } from "../utils";
 
 export const VideoHeroBlock01 = ({ data }) => {
+  const blockName = getBlockName(data.__typename);
+  
   return (
-    <>
+    <div className={`section block ${blockName}`}>
       <h1 data-accent-color="orange">{data.title}</h1>
-    </>
+    </div>
   );
 };
 

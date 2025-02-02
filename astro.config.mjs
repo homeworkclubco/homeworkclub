@@ -6,14 +6,16 @@ import react from '@astrojs/react';
 import tinaDirective from "./astro-tina-directive/register"
 import netlify from '@astrojs/netlify';
 
+import icon from 'astro-icon';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap(), react(), tinaDirective()],
+  integrations: [mdx(), sitemap(), react(), tinaDirective(), icon()],
 
   redirects: {
       '/admin': '/admin/index.html'
-	  },
+      },
 
   adapter: netlify()
 });

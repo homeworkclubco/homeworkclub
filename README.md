@@ -20,7 +20,6 @@ Features:
 - ✅ Visual Editing using Custom Loaders and Client Directives
 - ✅ 100/100 Lighthouse performance
 - ✅ View transitions are enabled 
-- ✅ Minimal styling (make it your own!)
 - ✅ SEO-friendly with canonical URLs and OpenGraph data
 - ✅ Sitemap support
 - ✅ RSS Feed support
@@ -84,10 +83,7 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Notes to organise
 
-Check out the [TinaCMS documentation](https://tina.io/docs) and the [Astro documentation](https://docs.astro.build) or jump into our [TinaCMS Discord server](https://discord.gg/cG2UNREu).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+### Icons
+We're using [Astro Icon](https://www.astroicon.dev/). We use Phosphor icons by default but more icon sets can be found [here at Icônes](https://icones.js.org/)

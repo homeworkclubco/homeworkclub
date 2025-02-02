@@ -1,6 +1,22 @@
+/* -------------------------------------------------------------------------- /
+  HC Hero Block
+/ -------------------------------------------------------------------------- */
+
 .HcHeroBlock {
+  
+  background-color: var(--neutral-3);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg); 
+}
+
+/* Logo */
+.HcHeroBlock {
+  svg {
+    max-width: 60rem;
+  }
+  
   .a {
-    fill: #1c1917;
+    fill: var(--black);
   }
   .b {
     fill: #e5007d;

@@ -1,0 +1,40 @@
+/* -------------------------------------------------------------------------- /
+  Three Column Cards
+
+  https://www.joshwcomeau.com/shadow-palette/
+/ -------------------------------------------------------------------------- */
+
+/* Enable breakpoints */
+@import "/src/styles/variables/breakpoints.css";
+
+.HcThreeColCardsBlock {
+  
+}
+
+.HcThreeColCardsBlock-cards {
+    display: grid;
+    gap: var(--grid-gutter);
+
+    @media(--sm) {
+      grid-template-columns: repeat(3,1fr);
+    }
+}
+
+.HcThreeColCardsBlock-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    padding: var(--space-xl) var(--space-l);
+    box-shadow: var(--shadow-elevation-medium);
+    text-align: center;
+    position: relative;
+}
+
+.HcThreeColCardsBlock-cardTitle {
+  transform: rotate(-3deg);
+  font-size: var(--step-2);
+  line-height: var(--line-height-tight);
+  font-family: var(--font-family-alt);
+  margin-block-end: var(--space-m);
+}

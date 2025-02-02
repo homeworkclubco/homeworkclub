@@ -20,7 +20,7 @@ const ContactPage = (props: Props) => {
 
 
 	return (
-		<main>
+		<main id="main">
 			<Blocks blocks={page.blocks} />
 			<div data-tina-field={tinaField(page, "body")}>
 				<TinaMarkdown content={page.body} />

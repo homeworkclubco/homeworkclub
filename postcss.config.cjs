@@ -1,8 +1,7 @@
 module.exports = {
   plugins: {
+    "postcss-nested": {},
     "postcss-import": {},
-    // "tailwindcss/nesting": {},
-    // tailwindcss: {},
     "postcss-custom-media": {},
     autoprefixer: {},
     // mistcss: {},
@@ -10,17 +9,22 @@ module.exports = {
       minWidth: 320,
       maxWidth: 1760,
     },
+    "postcss-sorting": {
+      order: ["custom-properties", "dollar-variables", "declarations", "at-rules", "rules"],
+      "properties-order": "alphabetical",
+      "unspecified-properties-position": "bottom",
+    },
     // 'postcss-sorting': {
-		// 	order: [
-		// 		'custom-properties',
-		// 		'dollar-variables',
-		// 		'declarations',
-		// 		'at-rules',
-		// 		'rules',
-		// 	],
+    // 	order: [
+    // 		'custom-properties',
+    // 		'dollar-variables',
+    // 		'declarations',
+    // 		'at-rules',
+    // 		'rules',
+    // 	],
 
-		// 	'properties-order': 'alphabetical',
-		// 	'unspecified-properties-position': 'bottom',
-		// },
+    // 	'properties-order': 'alphabetical',
+    // 	'unspecified-properties-position': 'bottom',
+    // },
   },
 };

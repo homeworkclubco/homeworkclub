@@ -1,0 +1,43 @@
+@import "./container.css";
+
+body {
+  --section-padding: var(--space-xs-m);
+  padding: var(--section-padding);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1 1 0%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  > section + section {
+    margin-block-start: var(--section-padding);
+  }
+}
+
+
+.section {
+  /* margin: 0 var(--space-xs-m) var(--space-xs-m); */
+  border-radius: var(--radius-lg);
+  padding-block: var(--space-xl);
+  
+  &[data-padding="none"] {
+    padding-block: 0;
+  }
+
+  &[data-padding="m"] {
+    padding-block: var(--space-xl);
+  }
+
+  &[data-padding="l"] {
+    padding-block: var(--space-xl-3xl);
+  }
+
+  &[data-padding="xl"] {
+    padding-block: var(--space-2xl-4xl);
+  }
+  
+}
