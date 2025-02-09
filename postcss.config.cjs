@@ -1,33 +1,18 @@
 module.exports = {
-  plugins: {
-    "postcss-nested": {},
-    "postcss-import": {},
-    "postcss-custom-media": {},
-    autoprefixer: {},
-    // mistcss: {},
-    "postcss-utopia": {
+  plugins: [
+    require('./postcss/postcss-flutopolis.cjs'),
+    require('postcss-nested'),
+    require('postcss-import'),
+    require('postcss-custom-media'),
+    require('autoprefixer'),
+    require('postcss-utopia')({
       minWidth: 320,
       maxWidth: 1760,
-    },
-    "postcss-sorting": {
-      order: ["custom-properties", "dollar-variables", "declarations", "at-rules", "rules"],
-      "properties-order": "alphabetical",
-      "unspecified-properties-position": "bottom",
-    },
-    "postcss-flutopolis": {},
-    // 'postcss-sorting': {
-    // 	order: [
-    // 		'custom-properties',
-    // 		'dollar-variables',
-    // 		'declarations',
-    // 		'at-rules',
-    // 		'rules',
-    // 	],
-
-    // 	'properties-order': 'alphabetical',
-    // 	'unspecified-properties-position': 'bottom',
-    // },
-  },
-};
-
-
+    }),
+    require('postcss-sorting')({
+      order: ['custom-properties', 'dollar-variables', 'declarations', 'at-rules', 'rules'],
+      'properties-order': 'alphabetical',
+      'unspecified-properties-position': 'bottom',
+    }),
+  ],
+}
