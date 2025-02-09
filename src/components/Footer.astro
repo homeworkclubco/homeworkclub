@@ -1,40 +1,81 @@
 ---
-import config from "../content/config/config.json";
-import IconLink from "./react/IconLink";
-const today = new Date();
+import config from '../content/config/config.json'
+import Logo from '/public/images/homework-club-logo-colour-light.svg'
+import IconLink from './react/IconLink'
+import { Image } from 'astro:assets'
+const today = new Date()
 ---
 
-<footer>
-	&copy; {today.getFullYear()}
-	{config.seo.siteOwner}. All rights reserved.
-	<div class="social-links">
-		{
-			config?.contactLinks?.map((link) => {
-				return (
-					<IconLink {...link} />
-				);
-			})
-		}
-	</div>
+<footer data-background-color="neutral">
+  <div class="container">
+    <a class="logo" href="/" title="Go to homepage">
+      <Image src={Logo} alt="Logo" />
+    </a>
+    <div class="socials">
+      {
+        config?.contactLinks?.map((link) => {
+          return <IconLink {...link} />
+        })
+      }
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container">
+      <div class="footer__copyright">
+        Copyright &copy; {today.getFullYear()}
+        {config.footer?.siteName}. All rights reserved. Stay in school.
+      </div>
+      <div class="footer__links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <!-- <a href="/terms-of-service">Terms of Service</a> -->
+      </div>
+    </div>
+  </div>
+  <style>
+    /* Import breakpoints */
+    @import '../styles/variables/breakpoints.css';
+
+    footer {
+      --color-link: var(--color-text-secondary);
+      --color-link-hover: var(--color-accent);
+      padding: var(--space-xl) 0;
+      margin-top: var(--section-padding);
+      border-radius: var(--radius-lg);
+    }
+
+    .container {
+      @media (--sm) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .logo {
+      img {
+        height: 2em;
+        width: auto;
+      }
+    }
+
+    .footer__bottom {
+      font-size: var(--step--1);
+      margin-block-start: var(--space-m-xl);
+      text-wrap: balance;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: var(--space-m);
+    }
+
+    .socials {
+      --iconLink-background-color: var(--neutral-950);
+      --iconLink-background-color-hover: var(--color-accent);
+
+      display: flex;
+      align-items: center;
+      gap: var(--space-m);
+    }
+  </style>
 </footer>
-<style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
-	}
-	.social-links {
-		display: flex;
-		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
-	}
-	.social-links a {
-		text-decoration: none;
-		color: rgb(var(--gray));
-	}
-	.social-links a:hover {
-		color: rgb(var(--gray-dark));
-	}
-</style>

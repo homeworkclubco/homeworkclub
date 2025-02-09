@@ -22,9 +22,9 @@ const HomePage = (props: Props) => {
 	return (
 		<main id="main">
 			<Blocks blocks={page.blocks} />
-			<div data-tina-field={tinaField(page, "body")}>
+			{/* <div data-tina-field={tinaField(page, "body")}>
 				<TinaMarkdown content={page.body} />
-			</div>
+			</div> */}
 		</main>
 	)
 }

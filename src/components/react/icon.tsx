@@ -1,5 +1,5 @@
 import React from "react";
-import * as Icons from "react-icons/tb";
+import * as Icons from "react-icons/pi";
 
 type Props = {
 	iconName: string;
@@ -12,7 +12,7 @@ const ReactIcon = ({ iconName }: Props) => {
 		return <div>Icon "{iconName}" not found</div>;
 	}
 
-	return <Icon size={32} />;
+	return <Icon size={24} />;
 };
 
 export default ReactIcon;

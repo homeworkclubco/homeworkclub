@@ -1,6 +1,6 @@
 /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1660,18,1.333,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-:root {
+/* :root {
   @utopia spaceScale({
     minSize: 16,
     maxSize: 20,
@@ -9,5 +9,54 @@
     customSizes: ["2xs-s", "xs-m", "s-l", "s-2xl", "m-2xl", "l-s", "l-xl", "l-2xl", "xl-2xl", "xl-3xl", "xl-4xl", "2xl-4xl", "3xl-5xl", "4xl-6xl", "4xl-7xl"],
     prefix: "space",
     relativeTo: "viewport-width"
+  });
+} */
+
+/* --space-4xs: clamp(0.49rem, calc(-0.03vw + 0.53rem), 0.52rem);
+    --space-3xs: clamp(0.66rem, calc(0.04vw + 0.64rem), 0.7rem);
+    --space-2xs: clamp(0.82rem, calc(0.16vw + 0.77rem), 0.99rem);
+    --space-xs: clamp(1.02rem, calc(0.35vw + 0.91rem), 1.4rem);
+    --space-s: clamp(1.28rem, calc(0.65vw + 1.07rem), 1.98rem);
+    --space-m: clamp(1.6rem, calc(1.11vw + 1.24rem), 2.8rem);
+    --space-l: clamp(2rem, calc(1.81vw + 1.42rem), 3.96rem);
+    --space-xl: clamp(2.5rem, calc(2.87vw + 1.58rem), 5.6rem);
+    --space-2xl: clamp(3.13rem, calc(4.44vw + 1.71rem), 7.92rem);
+    --space-3xl: clamp(3.91rem, calc(6.75vw + 1.75rem), 11.19rem);
+    --space-4xl: clamp(4.88rem, calc(10.13vw + 1.64rem), 15.83rem);
+
+    --text-xs: clamp(0.9rem, calc(-0.34vw + 1.37rem), 1.26rem);
+    --text-s: clamp(1.2rem, calc(-0.21vw + 1.49rem), 1.42rem);
+    --text-m: clamp(1.6rem, calc(0vw + 1.6rem), 1.6rem);
+    --text-l: clamp(1.8rem, calc(0.31vw + 1.7rem), 2.13rem);
+    --text-xl: clamp(2.02rem, calc(0.76vw + 1.78rem), 2.84rem);
+    --text-2xl: clamp(2.28rem, calc(1.4vw + 1.83rem), 3.79rem);
+    --text-3xl: clamp(2.56rem, calc(2.3vw + 1.82rem), 5.05rem);
+    --text-4xl: clamp(2.88rem, calc(3.57vw + 1.74rem), 6.73rem);
+    
+    --radius-xs: clamp(0.4rem, calc(0vw + 0.4rem), 0.4rem);
+    --radius-s: clamp(0.6rem, calc(0.19vw + 0.54rem), 0.8rem);
+    --radius-m: clamp(1rem, calc(0.19vw + 0.94rem), 1.2rem);
+    --radius-l: clamp(1.6rem, calc(0.37vw + 1.48rem), 2rem);
+    --radius-xl: clamp(2.6rem, calc(0.56vw + 2.42rem), 3.2rem); */
+
+:root {
+  @flutopolis generateScale({
+    pairs: [
+        ["4xs", 3, 4],
+        ["3xs", 4, 6],
+        ["2xs", 8, 10],
+        ["xs", 10, 12],
+        ["s", 12, 16],
+        ["m", 16, 20],
+        ["l", 24, 28],
+        ["xl", 32, 48],
+        ["2xl", 40, 64],
+        ["3xl", 56, 80],
+        ["4xl", 65, 128],
+        ["5xl", 80, 160],
+    ],
+    usePx: false,
+    prefix: 'space',
+    generateAllCrossPairs: true,
   });
 }

@@ -1,5 +1,6 @@
 import type { Collection } from "tinacms";
 import IconComponent from "../components/IconComponent";
+import { globalSeo } from "./globalSeo";
 
 export const GlobalConfigCollection: Collection = {
   name: "config",
@@ -7,6 +8,7 @@ export const GlobalConfigCollection: Collection = {
   path: "src/content/config",
   format: "json",
   ui: {
+    
     global: true,
     allowedActions: {
       create: false,
@@ -14,60 +16,94 @@ export const GlobalConfigCollection: Collection = {
     }
   },
   fields: [
+    globalSeo,
+    // {
+    //   name: "seo",
+    //   label: "General site config",
+    //   type: "object",
+    //   fields: [
+    //     {
+    //       name: "title",
+    //       label: "Site title for SEO",
+    //       type: "string",
+    //       required: true,
+    //     },
+    //     {
+    //       name: "description",
+    //       label: "Site description for SEO",
+    //       type: "string",
+    //       required: true,
+    //     },
+    //     {
+    //       name: "siteOwner",
+    //       label: "Your Name, Company Name (Used in the footer",
+    //       required: true,
+    //       type: "string",
+    //       ui: {
+    //         defaultValue: "Your name here"
+    //       },
+    //     },
+    //     // Add more settings here...
+    //   ],
+    // },
     {
-      name: "seo",
-      label: "General site config",
+      name: "header",
+      label: "Header",
       type: "object",
-      fields: [
-        {
-          name: "title",
-          label: "Site title for SEO",
-          type: "string",
-          required: true,
-        },
-        {
-          name: "description",
-          label: "Site description for SEO",
-          type: "string",
-          required: true,
-        },
-        {
-          name: "siteOwner",
-          label: "Your Name, Company Name (Used in the footer",
-          required: true,
-          type: "string",
-          ui: {
-            defaultValue: "Your name here"
+      fields: [{
+        name: "nav",
+        label: "Site Navigation Menu (Reorder, Add, Remove)",
+        type: "object",
+        list: true,
+        ui: {
+          itemProps: (item) => {
+            return {
+              label: item.title
+            };
           },
         },
-        // Add more settings here...
+        fields: [
+          {
+            name: "title",
+            label: "Title of Nav Item",
+            type: "string",
+            required: true
+          },
+          {
+            name: "link",
+            label: "Path of the Nav Item",
+            type: "string",
+            required: true
+          },
+          {
+            name: "target",
+            label: "Open in new tab",
+            required: false,
+            type: "string",
+            options: [
+              { label: 'Yes', value: '_blank' },
+              { label: "No", value: "_self" },
+            ],
+            ui: {
+              component: "button-toggle",
+            },
+          }
+        ]
+      },
       ],
     },
     {
-      name: "nav",
-      label: "Site Navigation Menu (Reorder, Add, Remove)",
+      name: "footer",
+      label: "Footer",
       type: "object",
-      list: true,
-      ui: {
-        itemProps: (item) => {
-          return {
-            label: item.title
-          };
-        },
-      },
       fields: [
         {
-          name: "title",
-          label: "Title of Nav Item",
+          name: "siteName",
+          label: "Site Name",
           type: "string",
-          required: true
-        },
-        {
-          name: "link",
-          label: "Path of the Nav Item",
-          type: "string",
-          required: true
-
+          // ui: {
+          //   component: "textarea"
+          // }
         }
       ]
     },
@@ -75,6 +111,7 @@ export const GlobalConfigCollection: Collection = {
       name: "contactLinks",
       label: "Contact Links",
       type: "object",
+      description: "Links to your social media profiles and more",
       list: true,
       ui: {
         itemProps: (item) => {

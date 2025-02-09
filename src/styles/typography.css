@@ -18,6 +18,16 @@ body {
   }
 }
 
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color 0.3s var(--easing);
+
+  &:hover {
+    color: var(--color-link-hover);
+  }
+}
+
 /* h1,
 h2,
 h3,
@@ -26,4 +36,3 @@ h5,
 h6 {
   font-family: var(--font-family-heading);
 } */
-

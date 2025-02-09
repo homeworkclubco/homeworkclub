@@ -1,7 +1,7 @@
-@import "./container.css";
+@import './container.css';
 
 body {
-  --section-padding: var(--space-xs-m);
+  --section-padding: var(--space-2xs-m);
   padding: var(--section-padding);
 }
 
@@ -18,26 +18,29 @@ main {
   }
 }
 
-
 .section {
-  /* margin: 0 var(--space-xs-m) var(--space-xs-m); */
-  border-radius: var(--radius-lg);
-  padding-block: var(--space-xl);
-  
-  &[data-padding="none"] {
+  background-color: var(--background-color);
+  color: var(--color-text);
+
+  &[data-padding='none'] {
     padding-block: 0;
   }
 
-  &[data-padding="m"] {
+  &[data-padding='m'] {
     padding-block: var(--space-xl);
   }
 
-  &[data-padding="l"] {
-    padding-block: var(--space-xl-3xl);
+  &[data-padding='l'] {
+    padding-block: var(--space-3xl);
   }
 
-  &[data-padding="xl"] {
-    padding-block: var(--space-2xl-4xl);
+  &[data-padding='xl'] {
+    padding-block: var(--space-5xl);
   }
-  
+}
+
+/* HC */
+.section {
+  border-radius: var(--radius-lg);
+  padding-block: var(--space-2xl);
 }

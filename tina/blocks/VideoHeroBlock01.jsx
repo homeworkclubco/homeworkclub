@@ -5,7 +5,7 @@ export const VideoHeroBlock01 = ({ data }) => {
   const blockName = getBlockName(data.__typename);
   
   return (
-    <div className={`section block ${blockName}`}>
+    <div className={`section block ${blockName}`} data-accent-color="">
       <h1 data-accent-color="orange">{data.title}</h1>
     </div>
   );

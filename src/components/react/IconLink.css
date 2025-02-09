@@ -1,0 +1,23 @@
+/* -------------------------------------------------------------------------- /
+  IconLink component styles
+/ -------------------------------------------------------------------------- */
+
+.iconLink {
+  --_iconLink-color: var(--iconLink-color, var(--color-text-secondary));
+  --_iconLink-color-hover: var(--iconLink-color-hover, var(--color-text-primary));
+  --_iconLink-padding: var(--iconLink-padding, var(--space-xs));
+  --_iconLink-radius: var(--iconLink-radius, var(--radius-full));
+  --_iconLink-background-color: var(--iconLink-background-color, transparent);
+  --_iconLink-background-color-hover: var(--iconLink-background-color-hover, transparent);
+
+  color: var(--_iconLink-color);
+  padding: var(--_iconLink-padding);
+  border-radius: var(--_iconLink-radius);
+  background-color: var(--iconLink-background-color);
+  transition: all 0.3s var(--easing);
+
+  &:hover {
+    color: var(--_iconLink-color-hover);
+    background-color: var(--_iconLink-background-color-hover);
+  }
+}

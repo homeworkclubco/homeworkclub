@@ -2,11 +2,29 @@
   Link
 / -------------------------------------------------------------------------- */
 
+/* Default config */
+[data-accent-color] {
+  --color-link: var(--accent-600);
+  --color-link-hover: var(--accent-700);
+  --color-link-active: var(--accent-700);
+}
 
+/* Target specific values if we need to vary from the default */
+[data-accent-color='secondary'] {
+  --color-link: var(--accent-600);
+  --color-link-hover: var(--accent-700);
+  --color-link-active: var(--accent-700);
+}
+
+[data-background-color='accent'] {
+  --color-link: var(--white);
+  --color-link-hover: var(--accent-50);
+  --color-link-active: var(--accent-50);
+}
 
 .link {
   color: var(--color-link);
-  display:  inline-flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -14,10 +32,14 @@
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--letter-spacing-loose);
   transition: var(--easing);
-  
+
   &:hover,
   &:focus-visible {
     color: var(--color-link-hover);
+  }
+
+  &:active {
+    color: var(--color-link-active);
   }
 }
 
@@ -25,7 +47,5 @@
   HC Specific
 / -------------------------------------------------------------------------- */
 
-
-.link[data-type="scribble-circle"] {
-
+.link[data-type='scribble-circle'] {
 }

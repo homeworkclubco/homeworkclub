@@ -14,6 +14,7 @@ module.exports = {
       "properties-order": "alphabetical",
       "unspecified-properties-position": "bottom",
     },
+    "postcss-flutopolis": {},
     // 'postcss-sorting': {
     // 	order: [
     // 		'custom-properties',
@@ -28,3 +29,5 @@ module.exports = {
     // },
   },
 };
+
+

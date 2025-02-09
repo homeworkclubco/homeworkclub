@@ -1,21 +1,21 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
-import config from "../content/config/config.json";
-import IconLink from "./react/IconLink";
-import AccessibleIcon from "../components/common/AccessibleIcon.astro";
-import Logo from "/public/images/homework-club-logo-colour-dark.svg";
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
+import config from '../content/config/config.json'
+// import HeaderLink from "./HeaderLink.astro";
+// import IconLink from "./react/IconLink";
+import AccessibleIcon from '../components/common/AccessibleIcon.astro'
+import Logo from '/public/images/homework-club-logo-colour-dark.svg'
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
 
 if (!config || !config.nav || !config.nav) {
-  throw new Error("Navigation data is missing or incomplete");
+  throw new Error('Navigation data is missing or incomplete')
 }
 
-const links = config.nav;
-const currentPath = Astro.url.pathname;
+const links = config.nav
+const currentPath = Astro.url.pathname
 ---
 
-<header class="header">
+<header class="navbar">
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <div class="container">
@@ -25,9 +25,9 @@ const currentPath = Astro.url.pathname;
       </a>
     </div>
     <div class="headerEnd">
-      <nav aria-label="Main Navigation">
+      <nav class="mainNav" aria-label="Main Navigation">
         <button
-          id="menu-toggle"
+          id="menuToggle"
           aria-expanded="false"
           aria-controls="navMenu"
           aria-label="Open navigation menu"
@@ -38,26 +38,27 @@ const currentPath = Astro.url.pathname;
         </button>
         <div
           id="navMenu"
-          class="nav-overlay"
+          class="navOverlay"
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
           data-state="closed"
         >
-          <div class="nav-content">
-            <button id="close-menu" aria-label="Close navigation menu">
+          <div class="navContent">
+            <button id="closeMenu" aria-label="Close navigation menu">
               <AccessibleIcon label="Close navigation menu">
                 <Icon name="ph:x" />
               </AccessibleIcon>
             </button>
-            <ul role="list">
+            <ul role="list" class="navContent__list">
               {
                 links.map((link) => (
-                  <li>
+                  <li class="navContent__item" role="listitem">
                     <a
                       href={link.link}
-                      aria-current={currentPath === link.link ? "page" : undefined}
-                      target={link.target || "_self"}
+                      aria-current={currentPath === link.link ? 'page' : undefined}
+                      target={link.target || '_self'}
+                      class="navContent__link"
                     >
                       {link.title}
                     </a>
@@ -87,46 +88,50 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <style>
-  @import "../styles/variables/breakpoints.css";
+  @import '../styles/variables/breakpoints.css';
 
   header {
     position: fixed;
-    width: 100vw;
+    z-index: 999;
+    width: calc(100vw - var(--section-padding) * 2);
+    left: var(--section-padding);
+    top: var(--section-padding);
 
     .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-block: var(--step-1);
+      padding-block: var(--section-padding);
     }
   }
 
   .logo {
     display: flex;
+
     img {
-      height: var(--step-2);
+      height: var(--step-3);
       width: auto;
     }
   }
 
-  #menu-toggle,
-  #close-menu {
-    --_color: var(--text-secondary);
-    --_color-hover: var(--grey-12);
-    --_background: var(--grey-a2);
-    --_size: var(--step-3);
-    color: var(--_color);
+  #menuToggle,
+  #closeMenu {
+    --_size: var(--step-4);
+    --_color: var(--color-text-secondary);
+    --_color-hover: var(--color-text-accent);
+
+    color: var(--color);
     background: none;
     border: none;
     border-radius: var(--radius-rounded);
-    background: var(--_background);
-    font-size: var(--step-1);
+    font-size: var(--step-2);
     width: var(--_size);
     height: var(--_size);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: 0.3s all var(--easing);
 
     &:hover,
     &:focus {
@@ -138,13 +143,13 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  #close-menu {
+  #closeMenu {
     --_color: var(--accent-3);
     --_color-hover: var(--white);
     align-self: flex-end;
   }
 
-  .nav-overlay {
+  .navOverlay {
     display: none;
     position: fixed;
     top: 0;
@@ -154,14 +159,15 @@ const currentPath = Astro.url.pathname;
     background: rgba(0, 0, 0, 0.8);
     z-index: 1000;
 
-    &[data-state="closed"] {
+    &[data-state='closed'] {
       animation: fadeOutDown 0.3s forwards;
+
       @media (--sm) {
         animation: unset;
       }
     }
 
-    &[data-state="open"] {
+    &[data-state='open'] {
       display: flex;
       animation: fadeInUp 0.3s forwards;
 
@@ -201,9 +207,9 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  .nav-content {
-    background: var(--accent-9);
-    color: var(--white);
+  .navContent {
+    background: var(--color-accent);
+    color: var(--accent-200);
     padding: var(--space-m);
     width: 100vw;
     height: 100%;
@@ -220,7 +226,7 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  ul {
+  .navContent__list {
     list-style: none;
     padding: 0;
     flex-grow: 1;
@@ -235,8 +241,9 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  nav a {
+  .navContent__link {
     --_padding: var(--space-2xs);
+
     color: var(--accent-3);
     font-size: var(--step-5);
     font-weight: var(--font-weight-medium);
@@ -244,6 +251,7 @@ const currentPath = Astro.url.pathname;
     padding: 0 var(--_padding);
     margin: calc(var(--_padding) * -1);
     transition: 0.3s all var(--easing);
+    text-decoration: none;
 
     &:hover,
     &:focus {
@@ -252,24 +260,54 @@ const currentPath = Astro.url.pathname;
       }
     }
 
-    &[aria-current="page"] {
-      color: var(--text-primary);
-      /* text-decoration: underline;
-      text-decoration-thickness: 0.15em; */
+    &[aria-current='page'] {
+      color: var(--white);
+
+      @media (--sm) {
+        color: var(--color-text);
+      }
     }
 
     @media (--sm) {
-      color: var(--text-secondary);
-      font-size: var(--step-1);
+      color: var(--color-text-secondary);
+      font-size: var(--step-0);
 
       &:hover,
       &:focus {
-        color: var(--accent-9);
+        color: var(--color-text-accent);
       }
     }
   }
 
   /* Boring stuff */
+
+  .headroom {
+    /* will-change: transform; */
+    background-color: rgba(0, 0, 0, 0);
+    top: var(--section-padding);
+
+    transition:
+      transform 0.3s var(--easing),
+      background-color 0.3s var(--easing);
+  }
+
+  body:not(.nav-open) {
+    .headroom--pinned {
+      left: 0;
+      width: 100vw;
+      transform: translateY(0%);
+    }
+  }
+
+  .headroom--unpinned {
+    transform: translateY(calc(-100% - var(--section-padding)));
+  }
+
+  .headroom--not-top {
+    background-color: var(--neutral-100);
+    top: 0;
+    border-bottom: 2px solid var(--neutral-200);
+  }
 
   .skip-link {
     position: absolute;
@@ -288,72 +326,87 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const menuToggle = document.getElementById("menu-toggle");
-    const closeMenu = document.getElementById("close-menu");
-    const navMenu = document.getElementById("navMenu");
-    const focusableElements = navMenu?.querySelectorAll("button, a");
+  import Headroom from '../scripts/headroom'
+
+  document.addEventListener('astro:page-load', () => {
+    const header = document.querySelector('.navbar')
+    var headroom = new Headroom(header, {
+      offset: {
+        up: 100,
+        down: 200,
+      },
+      // scroll tolerance in px before state changes
+      tolerance: 5,
+    })
+    headroom.init()
+
+    const menuToggle = document.getElementById('menuToggle')
+    const closeMenu = document.getElementById('closeMenu')
+    const navMenu = document.getElementById('navMenu')
+    const focusableElements = navMenu?.querySelectorAll('button, a')
 
     function openMenu() {
-      if (!menuToggle || !navMenu || !closeMenu) return;
+      if (!menuToggle || !navMenu || !closeMenu) return
 
-      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute('aria-expanded', 'true')
       // navMenu.style.display = "block";
-      navMenu.dataset.state = "open";
-      document.body.style.overflow = "hidden";
-      closeMenu.focus();
+      navMenu.dataset.state = 'open'
+      document.body.style.overflow = 'hidden'
+      document.body.classList.add('nav-open')
+      closeMenu.focus()
     }
 
     function closeMenuFunc() {
-      if (!menuToggle || !navMenu) return;
+      if (!menuToggle || !navMenu) return
 
-      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute('aria-expanded', 'false')
       // navMenu.style.display = "none";
-      navMenu.dataset.state = "closed";
-      document.body.style.overflow = "";
-      menuToggle.focus();
+      navMenu.dataset.state = 'closed'
+      document.body.style.overflow = ''
+      document.body.classList.remove('nav-open')
+      menuToggle.focus()
     }
 
     function handleKeyDown(event: KeyboardEvent) {
-      if (!focusableElements) return;
+      if (!focusableElements) return
 
-      if (event.key === "Escape") {
-        closeMenuFunc();
-      } else if (event.key === "Tab") {
-        const firstFocusableElement = focusableElements[0] as HTMLElement;
-        const lastFocusableElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+      if (event.key === 'Escape') {
+        closeMenuFunc()
+      } else if (event.key === 'Tab') {
+        const firstFocusableElement = focusableElements[0] as HTMLElement
+        const lastFocusableElement = focusableElements[focusableElements.length - 1] as HTMLElement
 
         if (!event.shiftKey && document.activeElement === lastFocusableElement) {
-          event.preventDefault();
-          firstFocusableElement.focus();
+          event.preventDefault()
+          firstFocusableElement.focus()
         } else if (event.shiftKey && document.activeElement === firstFocusableElement) {
-          event.preventDefault();
-          lastFocusableElement.focus();
+          event.preventDefault()
+          lastFocusableElement.focus()
         }
       }
     }
 
-    menuToggle?.addEventListener("click", openMenu);
-    closeMenu?.addEventListener("click", closeMenuFunc);
-    navMenu?.addEventListener("keydown", handleKeyDown);
+    menuToggle?.addEventListener('click', openMenu)
+    closeMenu?.addEventListener('click', closeMenuFunc)
+    navMenu?.addEventListener('keydown', handleKeyDown)
 
-    navMenu?.addEventListener("click", (event) => {
+    navMenu?.addEventListener('click', (event) => {
       if (event.target === navMenu) {
-        closeMenuFunc();
+        closeMenuFunc()
       }
-    });
+    })
 
-    window.addEventListener("resize", () => {
-      if (!navMenu || !menuToggle) return;
+    window.addEventListener('resize', () => {
+      if (!navMenu || !menuToggle) return
 
       if (window.innerWidth > 768) {
         // navMenu.style.display = "";
-        navMenu.dataset.state = "open";
-        document.body.style.overflow = "";
-      } else if (menuToggle.getAttribute("aria-expanded") === "false") {
+        navMenu.dataset.state = 'open'
+        document.body.style.overflow = ''
+      } else if (menuToggle.getAttribute('aria-expanded') === 'false') {
         // navMenu.style.display = "none";
-        navMenu.dataset.state = "closed";
+        navMenu.dataset.state = 'closed'
       }
-    });
-  });
+    })
+  })
 </script>

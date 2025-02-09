@@ -1,0 +1,78 @@
+/* -------------------------------------------------------------------------- /
+  Logo Grid Block 01
+/ -------------------------------------------------------------------------- */
+
+/* Import breakpoints */
+@import '../../src/styles/variables/breakpoints.css';
+
+.LogoGridBlock01 {
+  text-align: center;
+}
+
+.LogoGridBlock01__grid {
+  --grid-gutter: var(--space-s-2xl);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  gap: calc(var(--grid-gutter) / 2) var(--grid-gutter);
+}
+
+.LogoGridBlock01__gridItem {
+  --logo-width: 50%;
+  max-width: calc(var(--logo-width) - var(--grid-gutter));
+
+  @media (--sm) {
+    --logo-width: 33%;
+  }
+
+  @media (--md) {
+    --logo-width: 25%;
+  }
+}
+
+/* HC */
+
+.LogoGridBlock01__gridItem {
+  transition: transform 0.3s var(--easing);
+}
+.LogoGridBlock01__gridItem:nth-child(5n-1) {
+  transform: rotate(-3deg);
+
+  &:hover {
+    transform: rotate(-5deg);
+  }
+}
+
+.LogoGridBlock01__gridItem:nth-child(5n-2) {
+  transform: rotate(-2deg);
+
+  &:hover {
+    transform: rotate(-4deg);
+  }
+}
+
+.LogoGridBlock01__gridItem:nth-child(5n-3) {
+  transform: rotate(-1deg);
+
+  &:hover {
+    transform: rotate(-3deg);
+  }
+}
+
+.LogoGridBlock01__gridItem:nth-child(5n-4) {
+  transform: rotate(1deg);
+
+  &:hover {
+    transform: rotate(-2deg);
+  }
+}
+
+.LogoGridBlock01__gridItem:nth-child(5n-5) {
+  transform: rotate(2deg);
+
+  &:hover {
+    transform: rotate(-1deg);
+  }
+}

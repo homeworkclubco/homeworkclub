@@ -2,7 +2,7 @@
 
 /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1660,18,1.333,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-:root {
+/* :root {
   @utopia typeScale({
     minFontSize: 16,
     maxFontSize: 20,
@@ -12,6 +12,26 @@
     negativeSteps: 2,
     prefix: "step",
   });
+} */
+
+:root {
+  @flutopolis generateScale({
+    generateAllCrossPairs: true,
+    pairs: [
+        ["-2", 11, 12],
+        ["-1", 14, 16],
+        ["0", 16, 20],
+        ["1", 18, 24],
+        ["2", 20, 30],
+        ["3", 24, 36],
+        ["4", 30, 48],
+        ["5", 36, 60],
+        ["6", 48, 72],
+        ["7", 60, 96],
+    ],
+    usePx: false,
+    prefix: 'step',
+});
 }
 
 :root {
@@ -33,7 +53,7 @@
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  --font-weight-bold: 800;
   --font-weight-black: 900;
 }
 
@@ -42,10 +62,10 @@
 / -------------------------------------------------------------------------- */
 
 @font-face {
-    font-family: 'brightregular';
-    src: url('/fonts/bright-webfont.woff2') format('woff2'),
-         url('/fonts/bright-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'brightregular';
+  src:
+    url('/fonts/bright-webfont.woff2') format('woff2'),
+    url('/fonts/bright-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }

@@ -1,41 +1,36 @@
 {
-  "seo": {
-    "title": "Astro Blog + Tina",
-    "description": "Welcome to my website!",
-    "siteOwner": "Your name here"
-  },
   "nav": [
     {
       "title": "Home",
-      "link": "/",
-      "target": "_self"
+      "link": "/"
     },
     {
       "title": "Blog",
-      "link": "/blog",
-      "target": "_self"
+      "link": "/blog"
     },
     {
       "title": "About",
-      "link": "/about",
-      "target": "_self"
+      "link": "/about"
     }
   ],
+  "seo": {
+    "url": "https://homeworkclub.co",
+    "siteName": "Homework Club",
+    "divider": "|"
+  },
+  "footer": {
+    "siteName": "Homework Club"
+  },
   "contactLinks": [
+    {
+      "title": "Facebook",
+      "link": "#",
+      "icon": "PiFacebookLogo"
+    },
     {
       "title": "Twitter",
       "link": "https://x.com/tinacms",
-      "icon": "TbBrandTwitter"
-    },
-    {
-      "title": "Docs",
-      "link": "https://tina.io/docs",
-      "icon": "TbBook2"
-    },
-    {
-      "title": "GitHub",
-      "link": "https://github.com/tinacms/tinacms",
-      "icon": "TbBrandGithub"
+      "icon": "PiTwitterLogo"
     }
   ]
 }

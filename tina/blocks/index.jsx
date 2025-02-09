@@ -6,12 +6,14 @@ import { getBlockName } from "../utils";
 import { VideoHeroBlock01 } from "./VideoHeroBlock01";
 import { HcHeroBlock } from "./HcHeroBlock";
 import { HcThreeColCardsBlock } from "./HcThreeColCardsBlock";
+import { LogoGridBlock01 } from "./LogoGridBlock01";
 
 // @todo: do we even want the map? Could just pass the block directly
 const blockComponents = {
-  VideoHeroBlock01: VideoHeroBlock01,
+  // VideoHeroBlock01: VideoHeroBlock01,
   HcHeroBlock: HcHeroBlock,
   HcThreeColCardsBlock: HcThreeColCardsBlock,
+  LogoGridBlock01: LogoGridBlock01,
 };
 
 export const Blocks = (props) => {
