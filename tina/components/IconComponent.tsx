@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { wrapFieldsWithMeta } from 'tinacms'
-import * as Icons from 'react-Icons/pi'
+import * as Icons from 'react-icons/pi'
 import { useVirtualizer } from '@tanstack/react-virtual'
 
 const IconComponent = wrapFieldsWithMeta((props) => {
