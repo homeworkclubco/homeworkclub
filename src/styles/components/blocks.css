@@ -4,6 +4,7 @@
 
 .blockTitle {
   font-size: var(--step-7);
+  line-height: var(--line-height-tighter);
 }
 
 .blockSubtitle {

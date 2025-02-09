@@ -43,6 +43,7 @@
   --letter-spacing-normal: 0;
   --letter-spacing-loose: 0.05em;
 
+  --line-height-tighter: 0.75;
   --line-height-tight: 1;
   --line-height-snug: 1.25;
   --line-height: 1.5;

@@ -6,9 +6,19 @@ export const LogoGridBlock01 = ({ data }) => {
   const blockName = getBlockName(data.__typename);
   
   return (
-    <section className={`section block ${blockName}`} data-accent-color="secondary" data-background-color="neutral">
+    <section
+      className={`section block ${blockName}`}
+      data-accent-color="secondary"
+      data-background-color="neutral"
+    >
       <div className="container">
-        {data.title && <h2 className="blockTitle">{data.title}</h2>}
+        {data.title && (
+          <h2 className="blockTitle">
+            <rough-notation data-color="var(--color-accent)">
+              <span>{data.title}</span>
+            </rough-notation>
+          </h2>
+        )}
 
         <div className={`${blockName}__grid`}>
           {data.logos.map((logo, index) => (
@@ -19,7 +29,7 @@ export const LogoGridBlock01 = ({ data }) => {
         </div>
       </div>
     </section>
-  );
+  )
 };
 
 export const logoGridBlock01Schema = {

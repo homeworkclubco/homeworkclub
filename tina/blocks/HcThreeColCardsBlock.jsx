@@ -15,7 +15,11 @@ export const HcThreeColCardsBlock = ({ data }) => {
       data-background-color="accent"
     >
       <div className="container" data-center-content>
-        {data.title && <h2 className="blockTitle">{data.title}</h2>}
+        {data.title && (
+          <rough-notation data-color="var(--accent-200)">
+            <h2 className="blockTitle">{data.title}</h2>
+          </rough-notation>
+        )}
 
         {data.cards && (
           <div className={`${blockName}-cards`}>
@@ -26,10 +30,10 @@ export const HcThreeColCardsBlock = ({ data }) => {
                 data-background-color="accent-soft"
                 data-tina-field={tinaField(card)}
               >
-                <h3 data-tina-field={tinaField(card, "title")} className={`${blockName}-cardTitle`}>
+                <h3 data-tina-field={tinaField(card, 'title')} className={`${blockName}-cardTitle`}>
                   {card.title}
                 </h3>
-                <div data-tina-field={tinaField(card, "body")} className={`${blockName}-cardBody`}>
+                <div data-tina-field={tinaField(card, 'body')} className={`${blockName}-cardBody`}>
                   <TinaMarkdown content={card.body} />
                 </div>
               </div>
@@ -40,7 +44,7 @@ export const HcThreeColCardsBlock = ({ data }) => {
         <Actions actions={data.actions} />
       </div>
     </div>
-  );
+  )
 };
 
 export const hcThreeColCardsBlockSchema = {
