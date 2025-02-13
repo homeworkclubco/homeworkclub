@@ -57,9 +57,19 @@ const page = defineCollection({
       path: z.string(),
       relativePath: z.string(),
     }),
-    seoTitle: z.string(),
+    title: z.string(),
     body: z.any(),
     // blocks: z.array(z.object({})).optional,
+    seo: z.object({
+      title: z.string(),
+      description: z.string(),
+      image: z.string().nullish(),
+      robots: z.object({
+        index: z.boolean(),
+        follow: z.boolean(),
+    }),
   }),
-})
+  })
+});
+
 export const collections = { blog, page };

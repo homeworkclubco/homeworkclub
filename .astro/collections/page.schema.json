@@ -28,17 +28,57 @@
           ],
           "additionalProperties": false
         },
-        "seoTitle": {
+        "title": {
           "type": "string"
         },
         "body": {},
+        "seo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "image": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "robots": {
+              "type": "object",
+              "properties": {
+                "index": {
+                  "type": "boolean"
+                },
+                "follow": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "index",
+                "follow"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "title",
+            "description",
+            "robots"
+          ],
+          "additionalProperties": false
+        },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
         "tinaInfo",
-        "seoTitle"
+        "title",
+        "seo"
       ],
       "additionalProperties": false
     }

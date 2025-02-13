@@ -1,10 +1,15 @@
-import React from "react";
-import "./Link.css";
+import React from 'react'
+import './Link.css'
 
 export const Link = ({ className, link, ...rest }) => {
   return (
     <a href={link.link} className={`link ${className || ''}`} data-type="scribble-circle">
-      <span>{link.label}</span>
+      <rough-hover>
+        <span>
+          {link.label}
+          <img src="/images/rough-arrow-accent.svg" alt="" />
+        </span>
+      </rough-hover>
     </a>
-  );
-};
+  )
+}

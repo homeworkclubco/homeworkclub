@@ -55,12 +55,6 @@ export const hcHeroBlockSchema = {
   label: "Homework Club Hero",
   ui: {},
   fields: [
-    {
-      type: "string",
-      name: "title",
-      label: "Title",
-      required: true,
-    },
     actionsSchema
   ],
 };

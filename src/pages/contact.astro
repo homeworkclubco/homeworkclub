@@ -1,18 +1,18 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import config from "../content/config/config.json";
-import client from "../../tina/__generated__/client";
-import ContactPage from "../../tina/pages/ContactPage.tsx";
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import config from '../content/config/config.json'
+import client from '../../tina/__generated__/client'
+import ContactPage from '../../tina/pages/ContactPage.tsx'
 
-const data = await client.queries.contactPage({ relativePath: "contact.mdx" });
+const data = await client.queries.contactPage({ relativePath: 'contact.mdx' })
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={config.seo.title} description={config.seo.description} />
+    <BaseHead pageSeo={data.data.contactPage} />
   </head>
   <body>
     <Header />

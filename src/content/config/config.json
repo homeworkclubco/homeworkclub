@@ -16,7 +16,8 @@
   "seo": {
     "url": "https://homeworkclub.co",
     "siteName": "Homework Club",
-    "divider": "|"
+    "divider": "|",
+    "defaultImage": "/images/default-share-image.jpg"
   },
   "footer": {
     "siteName": "Homework Club"

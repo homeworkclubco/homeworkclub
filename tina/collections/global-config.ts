@@ -1,6 +1,6 @@
 import type { Collection } from "tinacms";
 import IconComponent from "../components/IconComponent";
-import { globalSeo } from "./globalSeo";
+import { globalSeo } from "../fieldDefs/globalSeo";
 
 export const GlobalConfigCollection: Collection = {
   name: "config",

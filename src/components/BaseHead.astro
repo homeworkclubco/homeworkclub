@@ -3,16 +3,35 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css'
 import { ClientRouter } from 'astro:transitions'
+import config from '../content/config/config.json'
+import { type PageSeo, type ConfigSeo } from '../../tina/__generated__/types'
 
 interface Props {
-  title: string
-  description: string
-  image?: string
+  pageSeo: PageSeo
 }
 
+const globalSeo = config?.seo as ConfigSeo
+
+const { pageSeo } = Astro.props
+
+// build values
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-const { title, description, image = '/uploads/blog-placeholder-1.jpg' } = Astro.props
+const title =
+  pageSeo?.removeSiteName ?
+    pageSeo.title
+  : `${pageSeo.title} ${globalSeo.divider} ${globalSeo.siteName}`
+
+const description = pageSeo.description || globalSeo.defaultDescription
+
+const image = pageSeo.image || globalSeo.defaultImage
+const imageUrl = new URL(image, Astro.url)
+
+let robotsIndex = pageSeo.robots.index ? 'index' : 'noindex'
+const robotsFollow = pageSeo.robots.follow ? 'follow' : 'nofollow'
+
+// Override with global if set
+robotsIndex = globalSeo.noIndex ? 'noindex' : 'index'
 ---
 
 <!-- Global Metadata -->
@@ -48,13 +67,15 @@ const { title, description, image = '/uploads/blog-placeholder-1.jpg' } = Astro.
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={imageUrl} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={imageUrl} />
+
+<meta name="robots" content={`${robotsFollow}, ${robotsIndex}`} />
 
 <ClientRouter />
