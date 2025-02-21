@@ -4,9 +4,12 @@
   "exclude": ["dist"],
   "compilerOptions": {
     "strictNullChecks": true,
+    "baseUrl": ".",
     "paths": {
-    // "@/*": ["/*"],
-    // "@components/*": ["/components/*"],
+      "@/*": ["/*"],
+      "@tina/*": ["tina/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"],
     }
   },
 }

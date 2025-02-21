@@ -1,0 +1,11 @@
+/* -------------------------------------------------------------------------- /
+  Cursors
+/ -------------------------------------------------------------------------- */
+
+:root {
+  --cursor-button: default;
+  --cursor-checkbox: default;
+  --cursor-disabled: not-allowed;
+  --cursor-link: pointer;
+  --cursor-menu-item: default;
+}

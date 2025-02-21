@@ -7,7 +7,7 @@ export const HcHeroBlock = ({ data }) => {
   const blockName = getBlockName(data.__typename);
 
   return (
-    <div className={`section block ${blockName}`} data-padding="xl" data-accent-color="" data-background-color="neutral-soft">
+    <div className={`section block ${blockName}`} data-padding="xl" data-background-color="neutral-soft" data-accent-color="primary">
       <div className="container" data-center-content>
         <svg className="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1394.7 746.97">
           <path

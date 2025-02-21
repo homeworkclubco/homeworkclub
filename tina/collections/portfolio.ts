@@ -1,24 +1,21 @@
 import type { Collection } from "tinacms";
+import { blocksField, titleField } from "../fieldDefs";
 
-export const BlogCollection: Collection = {
+export const ProjectsCollection: Collection = {
 
-  name: "blog",
-  label: "Posts",
-  path: "src/content/blog",
+  name: "projects",
+  label: "Projects",
+  path: "src/content/work",
   format: "mdx",
   ui: {
     router({ document }) {
-      return `/posts/${document._sys.filename}`;
+      return `/work/${document._sys.filename}`;
     },
   },
   fields: [
-    {
-      type: "string",
-      name: "title",
-      label: "Title",
-      isTitle: true,
-      required: true,
-    },
+    titleField,
+    // @ts-ignore,
+    blocksField(),
     {
       name: "description",
       label: "Description",

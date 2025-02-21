@@ -50,26 +50,26 @@ const page = defineCollection({
         };
       });
   },
-  schema: z.object({
-    tinaInfo: z.object({
-      filename: z.string(),
-      basename: z.string(),
-      path: z.string(),
-      relativePath: z.string(),
-    }),
-    title: z.string(),
-    body: z.any(),
-    // blocks: z.array(z.object({})).optional,
-    seo: z.object({
-      title: z.string(),
-      description: z.string(),
-      image: z.string().nullish(),
-      robots: z.object({
-        index: z.boolean(),
-        follow: z.boolean(),
-    }),
-  }),
-  })
+  // schema: z.object({
+  //   tinaInfo: z.object({
+  //     filename: z.string(),
+  //     basename: z.string(),
+  //     path: z.string(),
+  //     relativePath: z.string(),
+  //   }),
+  //   title: z.string(),
+  //   body: z.any(),
+  //   // blocks: z.array(z.object({})).optional,
+  //   seo: z.object({
+  //     title: z.string(),
+  //     description: z.string(),
+  //     image: z.string().nullish(),
+  //     robots: z.object({
+  //       index: z.boolean(),
+  //       follow: z.boolean(),
+  //   }),
+  // }),
+  // })
 });
 
 export const collections = { blog, page };

@@ -1,19 +1,14 @@
 import type { TinaField } from "tinacms"
 
-/* ****************************************
-Example default values: 
-
-  seo: {
-    title: "New page",
-    description: "SEO decription here",
-    image: "",
-    robots: {
-      index: true,
-      follow: true,
-    },
-  }
-
-**************************************** */
+export const defaultPageSeo = {
+  title: "Seo title here",
+  description: "SEO decription here",
+  image: "",
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export const pageSeo: TinaField = {
   label: 'Page SEO',
@@ -26,7 +21,14 @@ export const pageSeo: TinaField = {
       name: 'title',
       type: 'string',
       required: true,
-      description: "This text will appear in the first line when this shows up in search results. Max 60 characters"
+      description: "This text will appear in the first line when this shows up in search results. Max 60 characters",
+      // ui: {
+      //   validate: (value) => {
+      //     if (!value || value.length === 0) {
+      //       return "Title is required";
+      //     }
+      //   }
+      // }
     },
     {
       label: "Remove Site Name from Title",
@@ -54,7 +56,7 @@ export const pageSeo: TinaField = {
       name: "robots",
       type: "object",
       required: true,
-      
+
       fields: [
         {
           label: "Index",

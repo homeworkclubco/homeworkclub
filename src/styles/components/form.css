@@ -1,0 +1,177 @@
+/* -------------------------------------------------------------------------- /
+  Form
+/ -------------------------------------------------------------------------- */
+
+form {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.field {
+  --_block-spacing: var(--space-m);
+  display: grid;
+  gap: var(--space-3xs);
+
+  + * {
+    margin-top: var(--_block-spacing);
+  }
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input {
+  border-radius: var(--radius-md);
+  padding: var(--space-2xs) var(--space-s);
+  border: 1px solid var(--neutral-500);
+  transition: 0.3s all var(--easing);
+  /*
+   * Flex layout edge case: when the parent container of TextFieldRoot
+   * is smaller than the intrinsic width of TextFieldInput with all the slots,
+   * this actually causes the input to shrink the available width.
+   */
+  width: 100%;
+
+  /* Fix date inputs alignment in Chrome and Safari */
+  display: flex;
+  align-items: center;
+
+  /* Inherit alignment from root in case it's overriden */
+  text-align: inherit;
+
+  /*
+   * Hide type="number" input stepper because it's small, ugly, hard to use, and if
+   * needed, a nicer one can be easily implemented with own buttons in the Slot part.
+   */
+  &:where([type='number']) {
+    -moz-appearance: textfield;
+  }
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+
+  /* Remove the native cancel button */
+  &::-webkit-search-cancel-button {
+    appearance: none;
+  }
+
+  &::selection {
+    background-color: var(--text-field-selection-color);
+  }
+
+  /*
+   * Style the date inputs:
+   * https://codepen.io/andresdamelio/pen/KKbvdYb
+   */
+
+  /* Chrome’s calendar and time icons */
+  &::-webkit-calendar-picker-indicator {
+    box-sizing: content-box;
+    width: var(--text-field-native-icon-size);
+    height: var(--text-field-native-icon-size);
+    padding: var(--space-1);
+    margin-left: 0;
+    margin-right: calc(var(--space-1) * -1);
+    border-radius: calc(var(--text-field-border-radius) - 2px);
+  }
+  /* Chrome’s calendar icon */
+  &:where(:not([type='time']))::-webkit-calendar-picker-indicator {
+    margin-left: var(--space-1);
+  }
+  &::-webkit-calendar-picker-indicator:where(:hover) {
+    background-color: var(--gray-a3);
+  }
+  &::-webkit-calendar-picker-indicator:where(:focus-visible) {
+    outline: 2px solid var(--text-field-focus-color);
+  }
+
+  /* Remove focus ring from date fields and use the selection color */
+  &::-webkit-datetime-edit-ampm-field,
+  &::-webkit-datetime-edit-day-field,
+  &::-webkit-datetime-edit-hour-field,
+  &::-webkit-datetime-edit-millisecond-field,
+  &::-webkit-datetime-edit-minute-field,
+  &::-webkit-datetime-edit-month-field,
+  &::-webkit-datetime-edit-second-field,
+  &::-webkit-datetime-edit-week-field,
+  &::-webkit-datetime-edit-year-field {
+    &:where(:focus) {
+      background-color: var(--text-field-selection-color);
+      color: inherit;
+      outline: none;
+    }
+  }
+
+  @supports selector(:has(*)) {
+    &:where(:autofill, [data-com-onepassword-filled]) {
+      /* Reliably removes native autofill colors */
+      background-clip: text;
+      -webkit-text-fill-color: var(--gray-12);
+    }
+  }
+
+  outline: 2px solid var(--color-transparent);
+  outline-offset: -1px;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -1px;
+    /* border-color: var(--neutral-900); */
+  }
+}
+
+a {
+  outline: 2px solid var(--color-transparent);
+  outline-offset: -1px;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    /* border-color: var(--neutral-900); */
+  }
+}
+
+/* -------------------------------------------------------------------------- /
+  Disabled inputs
+/ -------------------------------------------------------------------------- */
+
+.input:where(:disabled, :read-only) {
+  cursor: text;
+  color: var(--color-text-secondary);
+  /* Safari */
+  -webkit-text-fill-color: var(--color-text-secondary);
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+  &:where(:placeholder-shown) {
+    cursor: var(--cursor-disabled);
+
+    & ~ :where(.rt-TextFieldSlot) {
+      cursor: var(--cursor-disabled);
+    }
+  }
+
+  .rt-TextFieldRoot:where(:has(&)) {
+    --text-field-selection-color: var(--gray-a5);
+    --text-field-focus-color: var(--gray-8);
+  }
+}
+
+/* -------------------------------------------------------------------------- /
+  Other stuff
+/ -------------------------------------------------------------------------- */
+
+.optional {
+  font-size: var(--step--1);
+  color: var(--neutral-600);
+}
+
+.help {
+  font-size: var(--step--1);
+  color: var(--color-text-secondary);
+  margin-block-start: var(--space-3xs);
+}

@@ -3,7 +3,7 @@ import './Link.css'
 
 export const Link = ({ className, link, ...rest }) => {
   return (
-    <a href={link.link} className={`link ${className || ''}`} data-type="scribble-circle">
+    <a href={link.link} className={`link ${className || ''}`}>
       <rough-hover>
         <span>
           {link.label}

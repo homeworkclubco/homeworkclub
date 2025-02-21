@@ -18,6 +18,7 @@ const HomePage = (props: Props) => {
 
 	const page = data.page;
 
+	// Todo: I've started adding page templates - complete this job
 
 	return (
 		<main id="main">

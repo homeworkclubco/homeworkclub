@@ -1,64 +1,50 @@
-import type { Collection } from "tinacms";
-import { videoHeroBlock01Schema } from "../blocks/VideoHeroBlock01";
-import { hcHeroBlockSchema } from "../blocks/HcHeroBlock";
-import { hcThreeColCardsBlockSchema } from "../blocks/HcThreeColCardsBlock";
-import { logoGridBlock01Schema } from "../blocks/LogoGridBlock01";
-import { pageSeo } from "../fieldDefs/pageSeo";
+/* -------------------------------------------------------------------------- /
+  Pages config
+
+  All pages are set up as templates options which allows us to configure the
+  fields for each page type. The `ui.router` function is used to generate the
+  URL for each page based on the filename of the page.
+/ -------------------------------------------------------------------------- */
+
+import type { Collection, TinaField } from "tinacms";
+
+import { defaultPageSeo, pageSeo } from "../fieldDefs/pageSeo";
+import { contactPageTemplate } from "./page.contact";
+import { blogIndexPageTemplate } from "./page.blogIndex";
+import { blockPageTemplate } from "./page.block";
+import { simplePageTemplate } from "./page.simple";
+
+const titleField: TinaField = {
+  name: "title",
+  type: "string",
+  description: "For internal reference only",
+  required: true,
+};
+
+const bodyField: TinaField = {
+  name: "body",
+  type: "rich-text",
+  isBody: true,
+  required: true
+};
 
 export const PageCollection: Collection = {
   name: "page",
   label: "Pages",
   path: "src/content/page",
   format: "mdx",
-  defaultItem: () => {
-    return {
-      title: "New Page",
-      body: "",
-      blocks: [],
-      seo: {
-        title: "New page",
-        description: "SEO decription here",
-        image: "",
-        robots: {
-          index: true,
-          follow: true,
-        },
-      },
-    }
-  },
   ui: {
     router: ({ document }) => {
       return `/${document._sys.filename.toLowerCase()}`;
     },
   },
-  fields: [
-    {
-      name: "title",
-      type: "string",
-      description: "For internal reference only",
-      required: true,
-    },
-    // {
-    //   name: "seoTitle",
-    //   type: "string",
-    //   required: true
-    // },
-    {
-      name: "body",
-      type: "rich-text",
-      isBody: true,
-      required: true
-    },
-    {
-      type: "object",
-      list: true,
-      name: "blocks",
-      label: "Blocks",
-      ui: {
-        visualSelector: true,
-      },
-      templates: [videoHeroBlock01Schema, hcHeroBlockSchema, hcThreeColCardsBlockSchema, logoGridBlock01Schema],
-    },
-    pageSeo,
+  templates: [
+    simplePageTemplate,
+    // @ts-ignore
+    blockPageTemplate,
+    contactPageTemplate,
+    blogIndexPageTemplate
+    
+    
   ]
 }
