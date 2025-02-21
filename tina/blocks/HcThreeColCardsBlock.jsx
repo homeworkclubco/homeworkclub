@@ -41,7 +41,7 @@ export const HcThreeColCardsBlock = ({ data }) => {
           </div>
         )}
 
-        <Actions actions={data.actions} />
+        {/* <Actions actions={data.actions} /> */}
       </div>
     </div>
   )

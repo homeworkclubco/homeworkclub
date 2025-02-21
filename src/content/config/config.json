@@ -3,14 +3,6 @@
     {
       "title": "Home",
       "link": "/"
-    },
-    {
-      "title": "Blog",
-      "link": "/blog"
-    },
-    {
-      "title": "About",
-      "link": "/about"
     }
   ],
   "seo": {
@@ -24,14 +16,9 @@
   },
   "contactLinks": [
     {
-      "title": "Facebook",
-      "link": "#",
-      "icon": "PiFacebookLogo"
-    },
-    {
-      "title": "Twitter",
-      "link": "https://x.com/tinacms",
-      "icon": "PiTwitterLogo"
+      "title": "Instagram",
+      "link": "https://instagram.com/_homeworkclub",
+      "icon": "PiInstagramLogo"
     }
   ]
 }

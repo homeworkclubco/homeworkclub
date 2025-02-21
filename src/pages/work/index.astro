@@ -9,6 +9,7 @@ import { Blocks } from '@tina/blocks'
 import Error404 from '@components/Error404.astro'
 
 let page
+
 try {
   const data = await client.queries.page({ relativePath: 'work.mdx' })
   page = data.data.page

@@ -44,7 +44,8 @@ export const HcHeroBlock = ({ data }) => {
           ></path>
         </svg>
 
-        <Actions className="actions" actions={data.actions} />
+        {/* <Actions className="actions" actions={data.actions} /> */}
+        <p>Full site coming soon</p>
       </div>
     </div>
   );

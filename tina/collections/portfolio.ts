@@ -1,5 +1,6 @@
 import type { Collection } from "tinacms";
 import { blocksField, titleField } from "../fieldDefs";
+import { pageSeo } from "@tina/fieldDefs/pageSeo";
 
 export const ProjectsCollection: Collection = {
 
@@ -42,5 +43,6 @@ export const ProjectsCollection: Collection = {
       label: "Body",
       isBody: true,
     },
+    pageSeo,
   ],
 }
