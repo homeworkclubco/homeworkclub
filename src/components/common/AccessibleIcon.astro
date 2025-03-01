@@ -12,7 +12,7 @@ const { label, class: className = '' } = Astro.props
   <span class="AccessibleIcon__label">{label}</span>
 </span>
 
-<style>
+<style is:global>
   .AccessibleIcon {
     display: inline-flex;
     align-items: center;
