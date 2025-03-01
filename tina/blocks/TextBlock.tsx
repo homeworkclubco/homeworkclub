@@ -4,7 +4,6 @@ import { getBlockName } from '../utils'
 import type { Template } from 'tinacms'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { tinaField } from 'tinacms/dist/react'
-import { d } from 'public/admin/assets/dialog.es-dffe62e7'
 
 /* -------------------------------------------------------------------------- /
   TODO:
