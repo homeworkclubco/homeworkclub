@@ -63,7 +63,7 @@
 / -------------------------------------------------------------------------- */
 
 @font-face {
-  font-family: 'brightregular';
+  font-family: 'Bright';
   src:
     url('/fonts/bright-webfont.woff2') format('woff2'),
     url('/fonts/bright-webfont.woff') format('woff');
