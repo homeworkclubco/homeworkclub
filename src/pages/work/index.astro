@@ -30,7 +30,11 @@ const projects = (await getCollection('project')).sort(
     <Layout pageSeo={page.seo}>
       <HeaderSimple title={pageTitle} subtitle={pageSubtitle} />
 
-      <section class="section" data-accent-color="accent" data-background-color="neutral-soft">
+      <section
+        class="section projects"
+        data-accent-color="accent"
+        data-background-color="neutral-soft"
+      >
         <div class="container">
           <ul class="polaroidList">
             {projects.map((project) => (
@@ -61,4 +65,10 @@ const projects = (await getCollection('project')).sort(
   : <Error404 />
 }
 
-<style></style>
+<style>
+  .projects {
+    background-image: url('/images/graph-paper-1.png');
+    background-position: center;
+    background-repeat: repeat;
+  }
+</style>
