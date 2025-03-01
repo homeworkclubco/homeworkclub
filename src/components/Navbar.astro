@@ -320,6 +320,7 @@ const currentPath = Astro.url.pathname
 <script>
   document.addEventListener('astro:page-load', () => {
     const navbar = document.querySelector('.navbar')
+
     let lastScrollTop = 0
     const scrollDistance = 100 // Configurable distance
 
@@ -336,6 +337,7 @@ const currentPath = Astro.url.pathname
     }
 
     function handleScroll() {
+      if (!navbar) return
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
       const scrollHeight = document.documentElement.scrollHeight
       const clientHeight = document.documentElement.clientHeight

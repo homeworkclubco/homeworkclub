@@ -1,10 +1,10 @@
 ---
 interface Props {
-  label: string;
-  class?: string;
+  label: string
+  class?: string
 }
 
-const { label, class: className = "" } = Astro.props;
+const { label, class: className = '' } = Astro.props
 ---
 
 <span class={`AccessibleIcon ${className}`}>
@@ -17,6 +17,10 @@ const { label, class: className = "" } = Astro.props;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    svg {
+      max-width: unset;
+    }
   }
 
   .AccessibleIcon__wrapper {
