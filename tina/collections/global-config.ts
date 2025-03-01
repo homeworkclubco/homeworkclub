@@ -17,35 +17,6 @@ export const GlobalConfigCollection: Collection = {
   },
   fields: [
     globalSeo,
-    // {
-    //   name: "seo",
-    //   label: "General site config",
-    //   type: "object",
-    //   fields: [
-    //     {
-    //       name: "title",
-    //       label: "Site title for SEO",
-    //       type: "string",
-    //       required: true,
-    //     },
-    //     {
-    //       name: "description",
-    //       label: "Site description for SEO",
-    //       type: "string",
-    //       required: true,
-    //     },
-    //     {
-    //       name: "siteOwner",
-    //       label: "Your Name, Company Name (Used in the footer",
-    //       required: true,
-    //       type: "string",
-    //       ui: {
-    //         defaultValue: "Your name here"
-    //       },
-    //     },
-    //     // Add more settings here...
-    //   ],
-    // },
     {
       name: "header",
       label: "Header",

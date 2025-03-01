@@ -6,6 +6,7 @@ import config from '../../content/config/config.json'
 import { getCollection } from 'astro:content'
 import FormattedDate from '../../components/FormattedDate.astro'
 import client from '../../../tina/__generated__/client'
+import Navbar from '../../components/Navbar.astro'
 
 // Remember to change the relativePath to match the file you want to query
 const data = await client.queries.page({ relativePath: 'posts.mdx' })
