@@ -35,7 +35,7 @@ export const globalSeo: TinaField = {
       required: true,
     },
     {
-      label: "Divider",
+      label: "Title divider",
       name: "divider",
       type: "string",
       description: "A character or string that will be used to separate the title of your pages from the site name. For example: ' | '",

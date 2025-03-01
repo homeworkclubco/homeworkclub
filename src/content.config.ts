@@ -1,6 +1,10 @@
 import { defineCollection, z } from "astro:content";
 import client from "../tina/__generated__/client";
 
+/* -------------------------------------------------------------------------- /
+  Blog
+/ -------------------------------------------------------------------------- */
+
 const blog = defineCollection({
   loader: async () => {
     const postsResponse = await client.queries.blogConnection();
@@ -32,6 +36,10 @@ const blog = defineCollection({
     heroImage: z.string().nullish(),
   }),
 });
+
+/* -------------------------------------------------------------------------- /
+  Page
+/ -------------------------------------------------------------------------- */
 
 const page = defineCollection({
   loader: async () => {
@@ -72,4 +80,28 @@ const page = defineCollection({
   // })
 });
 
-export const collections = { blog, page };
+/* -------------------------------------------------------------------------- /
+  Project
+/ -------------------------------------------------------------------------- */
+
+const project = defineCollection({
+  loader: async () => {
+    const postsResponse = await client.queries.projectConnection();
+
+    // Map Tina posts to the correct format for Astro
+    return postsResponse.data.projectConnection.edges
+      ?.filter((p) => !!p)
+      .map((p) => {
+        const node = p?.node;
+
+        return {
+          ...node,
+          id: node?._sys.relativePath.replace(/\.mdx?$/, ""), // Generate clean URLs
+          tinaInfo: node?._sys, // Include Tina system info if needed
+        };
+      });
+  },
+});
+
+
+export const collections = { blog, page, project };

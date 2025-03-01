@@ -4,10 +4,10 @@
 import '../styles/global.css'
 import { ClientRouter } from 'astro:transitions'
 import config from '../content/config/config.json'
-import { type PageSeo, type ConfigSeo } from '../../tina/__generated__/types'
+import { type ConfigSeo } from '../../tina/__generated__/types'
 
 interface Props {
-  pageSeo: PageSeo
+  pageSeo: any
 }
 
 const globalSeo = config?.seo as ConfigSeo
@@ -27,8 +27,8 @@ const description = pageSeo.description || globalSeo.defaultDescription
 const image = pageSeo.image || globalSeo.defaultImage
 const imageUrl = new URL(image, Astro.url)
 
-let robotsIndex = pageSeo.robots.index ? 'index' : 'noindex'
-const robotsFollow = pageSeo.robots.follow ? 'follow' : 'nofollow'
+let robotsIndex = pageSeo.robots?.index ? 'index' : 'noindex'
+const robotsFollow = pageSeo.robots?.follow ? 'follow' : 'nofollow'
 
 // Override with global if set
 robotsIndex = globalSeo.noIndex ? 'noindex' : 'index'

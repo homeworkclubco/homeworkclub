@@ -1,0 +1,13 @@
+/* -------------------------------------------------------------------------- /
+  Text Block
+/ -------------------------------------------------------------------------- */
+
+/* Enable breakpoints */
+@import '/src/styles/variables/breakpoints.css';
+
+.TextBlock__header {
+  /* match prose */
+  max-width: 65ch;
+  width: 100%;
+  margin-inline: auto;
+}

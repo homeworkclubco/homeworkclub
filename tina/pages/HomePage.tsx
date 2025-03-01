@@ -10,24 +10,24 @@ type Props = {
 }
 
 const HomePage = (props: Props) => {
-	const { data } = useTina({
-		query: props.query,
-		variables: props.variables,
-		data: props.data,
-	})
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  })
 
-	const page = data.page;
+  const page = data.page
 
-	// Todo: I've started adding page templates - complete this job
+  // Todo: I've started adding page templates - complete this job
 
-	return (
-		<main id="main">
-			<Blocks blocks={page.blocks} />
-			{/* <div data-tina-field={tinaField(page, "body")}>
+  return (
+    <>
+      <Blocks blocks={page.blocks} />
+      {/* <div data-tina-field={tinaField(page, "body")}>
 				<TinaMarkdown content={page.body} />
 			</div> */}
-		</main>
-	)
+    </>
+  )
 }
 
 export default HomePage;

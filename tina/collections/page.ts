@@ -13,20 +13,7 @@ import { contactPageTemplate } from "./page.contact";
 import { blogIndexPageTemplate } from "./page.blogIndex";
 import { blockPageTemplate } from "./page.block";
 import { simplePageTemplate } from "./page.simple";
-
-const titleField: TinaField = {
-  name: "title",
-  type: "string",
-  description: "For internal reference only",
-  required: true,
-};
-
-const bodyField: TinaField = {
-  name: "body",
-  type: "rich-text",
-  isBody: true,
-  required: true
-};
+import { slugifyFilename } from "@tina/fieldDefs";
 
 export const PageCollection: Collection = {
   name: "page",
@@ -37,14 +24,13 @@ export const PageCollection: Collection = {
     router: ({ document }) => {
       return `/${document._sys.filename.toLowerCase()}`;
     },
+    filename: slugifyFilename,
   },
   templates: [
     simplePageTemplate,
     // @ts-ignore
     blockPageTemplate,
     contactPageTemplate,
-    blogIndexPageTemplate
-    
-    
+    blogIndexPageTemplate,
   ]
 }

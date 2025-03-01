@@ -8,7 +8,7 @@ type Props = {
 	query: string;
 }
 
-const TinaPage = (props: Props) => {
+const TinaPageSimple = (props: Props) => {
 	const { data } = useTina({
 		query: props.query,
 		variables: props.variables,
@@ -17,13 +17,15 @@ const TinaPage = (props: Props) => {
 
 	const page = data.page;
 
+	// Return different content depending on page.__pageType
+
 	return (
-		<main id="main">
-			<div data-tina-field={tinaField(page, "body")}>
-				<TinaMarkdown content={page.body} />
-			</div>
-		</main>
-	)
+    <>
+      <div className="prose" data-tina-field={tinaField(page, 'body')}>
+        <TinaMarkdown content={page.body} />
+      </div>
+    </>
+  )
 }
 
-export default TinaPage;
+export default TinaPageSimple;

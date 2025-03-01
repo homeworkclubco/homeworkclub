@@ -15,15 +15,16 @@
 }
 
 .HcThreeColCardsBlock-cards {
-  display: grid;
+  display: flex;
   gap: var(--grid-gutter);
+  flex-wrap: wrap;
 
   @media (--sm) {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .HcThreeColCardsBlock-card {
+  --_item-width: 100%;
   background-image: url('/images/paper-tile-3.jpg');
   background-size: cover;
   background-position: center;
@@ -38,6 +39,17 @@
   box-shadow: var(--shadow-elevation-medium);
   text-align: center;
   position: relative;
+  width: calc(var(--_item-width) - var(--grid-gutter));
+
+  flex-grow: 1;
+
+  @media (--sm) {
+    --_item-width: 50%;
+  }
+
+  @media (--md) {
+    --_item-width: 33.333%;
+  }
 }
 
 .HcThreeColCardsBlock-cardTitle {

@@ -14,7 +14,7 @@ export const pageSeo: TinaField = {
   label: 'Page SEO',
   name: 'seo',
   type: 'object',
-  required: true,
+  
   fields: [
     {
       label: 'Title',
@@ -55,7 +55,6 @@ export const pageSeo: TinaField = {
       label: "Robots (advanced)",
       name: "robots",
       type: "object",
-      required: true,
 
       fields: [
         {
@@ -63,14 +62,12 @@ export const pageSeo: TinaField = {
           name: "index",
           type: "boolean",
           description: "Allow search engines to index this page.",
-          required: true,
         },
         {
           label: "Follow",
           name: "follow",
           type: "boolean",
           description: "Allow search engines to follow the links on this page.",
-          required: true,
         }
       ]
     }

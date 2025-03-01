@@ -7,31 +7,44 @@ import { VideoHeroBlock01 } from "./VideoHeroBlock01";
 import { HcHeroBlock } from "./HcHeroBlock";
 import { HcThreeColCardsBlock } from "./HcThreeColCardsBlock";
 import { LogoGridBlock01 } from "./LogoGridBlock01";
+import { PortfolioListBlock } from "./PortfolioListBlock";
+import { MediaBlock } from "./MediaBlock";
+import { TextBlock } from "./TextBlock";
 
-// @todo: do we even want the map? Could just pass the block directly
+// Block Components
 const blockComponents = {
   // VideoHeroBlock01: VideoHeroBlock01,
+  TextBlock, TextBlock,
+  MediaBlock: MediaBlock,
   HcHeroBlock: HcHeroBlock,
   HcThreeColCardsBlock: HcThreeColCardsBlock,
   LogoGridBlock01: LogoGridBlock01,
+  PortfolioListBlock: PortfolioListBlock,
 };
 
 export const Blocks = (props) => {
+  const blocks = props.blocks ? props.blocks : props.data;
+
   return (
-    <>
-      {props.blocks
-        ? props.blocks.map(function (block, i) {
+    <section class="blocks">
+      {blocks
+        ? blocks.map(function (block, i) {
             return (
-              <section
+              <div
                 key={i}
                 data-tina-field={tinaField(block)}
+                class="block"
               >
                 <Block {...block} />
-              </section>
+              </div>
             );
           })
-        : null}
-    </>
+        : (
+          <section class="blocks" data-empty>
+            <p>No blocks found</p>
+          </section>
+        )}
+    </section>
   );
 };
 

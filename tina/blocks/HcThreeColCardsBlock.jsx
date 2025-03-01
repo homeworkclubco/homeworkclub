@@ -17,7 +17,7 @@ export const HcThreeColCardsBlock = ({ data }) => {
       <div className="container" data-center-content>
         {data.title && (
           <rough-notation data-color="var(--accent-200)">
-            <h2 className="blockTitle">{data.title}</h2>
+            <h2 className="blockTitle" data-tina-field={tinaField(data.title)}>{data.title}</h2>
           </rough-notation>
         )}
 
@@ -41,7 +41,7 @@ export const HcThreeColCardsBlock = ({ data }) => {
           </div>
         )}
 
-        {/* <Actions actions={data.actions} /> */}
+        <Actions actions={data.actions} />
       </div>
     </div>
   )

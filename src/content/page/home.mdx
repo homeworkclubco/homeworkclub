@@ -1,6 +1,5 @@
 ---
 title: home
-_template: page
 blocks:
   - actions:
       - label: Our work
@@ -15,7 +14,7 @@ blocks:
           about
       - title: Web design and development
         body: >
-          We create beautiful websites that work seamlessly (even especially on
+          We create beautiful websites that work seamlessly (especially on
           mobile)
       - title: Content and social media
         body: >
@@ -47,6 +46,15 @@ blocks:
       - src: /uploads/logos/watershed-sticker.png
         alt: Watershed
     _template: logoGridBlock01
+  - title: Our homework
+    projects:
+      - project: src/content/work/downtown-productions.mdx
+      - project: src/content/work/trip-the-light.mdx
+    actions:
+      - label: See all homework
+        type: link
+        link: /work
+    _template: portfolioListBlock
 seo:
   title: Homework Club | Creative Digital Agency | London & Buckinghamshire
   removeSiteName: true
@@ -58,8 +66,6 @@ seo:
   robots:
     index: false
     follow: true
+_template: page
 ---
 
-# 🧑‍🚀 Hello, Astronaut!
-
-Welcome to the official [Astro](https://astro.build/) + [TinaCMS](https://tina.io/) starter template! This template serves as a lightweight, minimally-styled starting point for anyone looking to build a personal website, blog, or portfolio with Astro and TinaCMS.

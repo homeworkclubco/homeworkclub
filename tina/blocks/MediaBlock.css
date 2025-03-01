@@ -1,0 +1,11 @@
+/* -------------------------------------------------------------------------- /
+  Media Block
+/ -------------------------------------------------------------------------- */
+
+/* Enable breakpoints */
+@import '/src/styles/variables/breakpoints.css';
+
+.MediaBlock {
+  padding: 0;
+  overflow: hidden;
+}

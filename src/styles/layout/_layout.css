@@ -1,21 +1,12 @@
 @import './container.css';
 
 body {
+  /* Space between sections */
   --section-padding: var(--space-2xs-m);
-  padding: var(--section-padding);
-}
 
-main {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  flex: 1 1 0%;
+  padding: var(--section-padding);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  > section + section {
-    margin-block-start: var(--section-padding);
-  }
 }
 
 .section {
@@ -43,4 +34,8 @@ main {
 .section {
   border-radius: var(--radius-lg);
   padding-block: var(--space-2xl);
+
+  + .section {
+    margin-block: var(--section-padding);
+  }
 }

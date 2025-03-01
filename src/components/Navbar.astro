@@ -7,11 +7,11 @@ import Logo from '/public/images/homework-club-logo-colour-dark.svg'
 import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon/components'
 
-if (!config || !config.nav || !config.nav) {
+if (!config || !config.header || !config.header.nav) {
   throw new Error('Navigation data is missing or incomplete')
 }
 
-const links = config.nav
+const links = config.header.nav
 const currentPath = Astro.url.pathname
 ---
 
@@ -74,7 +74,7 @@ const currentPath = Astro.url.pathname
     <!-- <nav>
     <h2><a href="/">{config.seo.title}</a></h2>
     <div class="internal-links">
-      {config.nav.map((nav) => <HeaderLink href={nav.link}>{nav.title}</HeaderLink>)}
+      {config.nav.map((nav) => <NavbarLink href={nav.link}>{nav.title}</NavbarLink>)}
     </div>
     <div class="social-links">
       {
@@ -93,6 +93,7 @@ const currentPath = Astro.url.pathname
   header {
     position: fixed;
     z-index: 999;
+    width: 100%;
     width: calc(100vw - var(--section-padding) * 2);
     left: var(--section-padding);
     top: var(--section-padding);
@@ -233,7 +234,7 @@ const currentPath = Astro.url.pathname
     display: flex;
     justify-content: end;
     flex-direction: column;
-    gap: var(--space-m);
+    gap: var(--space-l);
 
     @media (--sm) {
       flex-direction: row;
@@ -256,7 +257,7 @@ const currentPath = Astro.url.pathname
     &:hover,
     &:focus {
       @media (--md) {
-        color: var(--accent-9);
+        color: var(--color-text-accent);
       }
     }
 
@@ -339,7 +340,11 @@ const currentPath = Astro.url.pathname
       tolerance: 5,
     })
     headroom.init()
+  })
+</script>
 
+<script>
+  document.addEventListener('astro:page-load', () => {
     const menuToggle = document.getElementById('menuToggle')
     const closeMenu = document.getElementById('closeMenu')
     const navMenu = document.getElementById('navMenu')

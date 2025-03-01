@@ -2,9 +2,28 @@
   General styles for blocks
 / -------------------------------------------------------------------------- */
 
+.blocks {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  flex: 1 1 0%;
+}
+
+.block + .block {
+  margin-block-start: var(--section-padding);
+}
+
+.blocks[data-empty] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-2xl);
+  text-align: center;
+  color: red;
+}
+
 .blockTitle {
   font-size: var(--step-7);
-  line-height: var(--line-height-tighter);
 }
 
 .blockSubtitle {

@@ -1,14 +1,21 @@
 ---
+import Layout from 'src/layouts/Layout.astro'
 
+const pageSeo = {
+  title: '404 Page not found',
+  description: "The page you're looking for doesn't exist.",
+}
 ---
 
-<section>
-  <div class="container">
-    <h1>404</h1>
-    <p>The page you're looking for doesn't exist.</p>
-    <a href="/" class="button">Return home</a>
-  </div>
-</section>
+<Layout pageSeo={pageSeo}>
+  <section>
+    <div class="container">
+      <h1>404</h1>
+      <p>The page you're looking for doesn't exist.</p>
+      <a href="/" class="button">Return home</a>
+    </div>
+  </section>
+</Layout>
 
 <style>
   section {

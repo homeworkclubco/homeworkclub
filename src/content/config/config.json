@@ -1,15 +1,28 @@
 {
-  "nav": [
-    {
-      "title": "Home",
-      "link": "/"
-    }
-  ],
   "seo": {
     "url": "https://homeworkclub.co",
     "siteName": "Homework Club",
     "divider": "|",
     "defaultImage": "/images/default-share-image.jpg"
+  },
+  "header": {
+    "nav": [
+      {
+        "title": "Work",
+        "link": "/work",
+        "target": "_self"
+      },
+      {
+        "title": "About",
+        "link": "/about",
+        "target": "_self"
+      },
+      {
+        "title": "Contact",
+        "link": "/contact",
+        "target": "_self"
+      }
+    ]
   },
   "footer": {
     "siteName": "Homework Club"

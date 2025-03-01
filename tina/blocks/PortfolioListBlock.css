@@ -1,0 +1,16 @@
+/* -------------------------------------------------------------------------- /
+  Portfolio List Block
+/ -------------------------------------------------------------------------- */
+
+/* Enable breakpoints */
+@import '/src/styles/variables/breakpoints.css';
+
+.PortfolioListBlock {
+  background-image: url('/images/graph-paper-1.png');
+  background-position: center;
+  background-repeat: repeat;
+
+  .polaroidList {
+    margin-top: var(--space-l);
+  }
+}

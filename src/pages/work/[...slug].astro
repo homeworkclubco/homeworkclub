@@ -1,0 +1,40 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+import client from '../../../tina/__generated__/client'
+import Layout from '../../layouts/Layout.astro'
+import { Blocks } from '@tina/blocks'
+import TinaProject from '@tina/pages/TinaProject'
+import HeaderSimple from '@components/HeaderSimple.astro'
+
+export async function getStaticPaths() {
+  const projects = await getCollection('project')
+
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: {
+      project,
+      getTinaProps: async () =>
+        client.queries.project({
+          relativePath: project.data.tinaInfo.relativePath,
+        }),
+    },
+  }))
+}
+
+const { project, getTinaProps } = Astro.props
+const tinaProps = await getTinaProps()
+
+const data = project.data
+---
+
+<Layout pageSeo={data.seo}>
+  <HeaderSimple title={data.title} subtitle={data.subtitle} />
+
+  <TinaProject {...tinaProps} client:tina />
+
+  <style>
+    pre {
+      text-wrap: wrap;
+    }
+  </style>
+</Layout>

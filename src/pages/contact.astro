@@ -1,100 +1,87 @@
 ---
 /* -------------------------------------------------------------------------- /
     Specific contact page template to render what you want with astro.
-    Where you need visual editing from Tina, do that within the ContactPage
-    component which is built in React. 
+    A React component is used to render the page content and is required to
+    enable visual editing. Without it, you can't edit the content at all from
+    the TinaCMS UI.
+
+    This is very annoying
 / -------------------------------------------------------------------------- */
 
-import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
 import client from '../../tina/__generated__/client'
-import ContactPage from '../../tina/pages/ContactPage.tsx'
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import Layout from 'src/layouts/Layout.astro'
+import TinaPageSimple from '@tina/pages/TinaPageSimple'
+import HeaderSimple from '@components/HeaderSimple.astro'
 
 const data = await client.queries.page({ relativePath: 'contact.mdx' })
 
 const page = data.data.page
+
+// Hardcode
+const pageTitle = "Let's chat"
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead pageSeo={page.seo} />
-  </head>
-  <body data-accent-color="primary">
-    <Header />
-    <section id="main" data-background-color="neutral-soft">
-      <div class="container">
-        <header>
-          <h1>Let's chat</h1>
-        </header>
-        {
-          page.body && (
-            <div class="body prose">
-              <TinaMarkdown content={page.body} />
-            </div>
-          )
-        }
-        <form action="#">
-          <div class="field">
-            <label for="name" class="label">Name</label>
-            <div class="control">
-              <input id="name" type="text" class="input" placeholder="Name" required />
-            </div>
-          </div>
+<Layout pageSeo={page.seo}>
+  <HeaderSimple title={pageTitle} />
+  <section class="section" data-background-color="neutral-soft">
+    <div class="container" data-center-content>
+      <!-- Editable body content -->
+      <TinaPageSimple {...data} client:tina />
 
-          <div class="field">
-            <label for="email" class="label">Email address</label>
-            <div class="control">
-              <input
-                id="email"
-                type="text"
-                class="input"
-                placeholder="hello@homeworkclub.co"
-                required
-              />
-            </div>
+      <form method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
+        <div class="field">
+          <label for="name" class="label">Name</label>
+          <div class="control">
+            <input id="name" type="text" class="input" placeholder="Name" required />
           </div>
+        </div>
 
-          <div class="field">
-            <label for="phone" class="label">
-              Phone number
-              <span class="optional">Optional</span>
-            </label>
-            <div class="control">
-              <input id="phone" type="text" class="input" placeholder="+44 1234 567890" />
-            </div>
+        <div class="field">
+          <label for="email" class="label">Email address</label>
+          <div class="control">
+            <input
+              id="email"
+              type="text"
+              class="input"
+              placeholder="hello@homeworkclub.co"
+              required
+            />
           </div>
+        </div>
 
-          <div class="field">
-            <label for="message" class="label">Message</label>
-            <div class="control">
-              <textarea id="message" class="input"></textarea>
-              <p class="help">Tell us a little about the project</p>
-            </div>
+        <div class="field">
+          <label for="phone" class="label">
+            Phone number
+            <span class="optional">Optional</span>
+          </label>
+          <div class="control">
+            <input id="phone" type="text" class="input" placeholder="+44 1234 567890" />
           </div>
-        </form>
-      </div>
-    </section>
-    <!-- <ContactPage {...data} client:tina /> -->
+        </div>
 
-    <!-- Contact form, not customisable -->
-    <Footer />
-  </body>
-</html>
+        <div class="field">
+          <label for="message" class="label">Message</label>
+          <div class="control">
+            <textarea id="message" class="input"></textarea>
+            <p class="help">Tell us a little about the project</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button type="submit" class="button">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- <ContactPage {...data} client:tina /> -->
+</Layout>
 
 <style>
   section {
-    padding-block: var(--space-4xl);
     text-align: center;
-  }
-
-  h1 {
-    font-size: var(--step-6);
-    font-weight: normal;
-    letter-spacing: var(--letter-spacing-normal);
-    line-height: var(--line-height-tighter);
   }
 
   .prose {

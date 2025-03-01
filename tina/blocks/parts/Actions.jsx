@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../../../src/components/react/Button";
 import { Link } from "../../../src/components/react/Link";
 
-export const Actions = ({ className, actions }) => {
+export const Actions = ({ className = '', actions }) => {
   if (!actions) return null;
   
   return (
