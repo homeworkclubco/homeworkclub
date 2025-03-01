@@ -14,19 +14,19 @@ import { TextBlock } from "./TextBlock";
 // Block Components
 const blockComponents = {
   // VideoHeroBlock01: VideoHeroBlock01,
-  TextBlock, TextBlock,
-  MediaBlock: MediaBlock,
-  HcHeroBlock: HcHeroBlock,
-  HcThreeColCardsBlock: HcThreeColCardsBlock,
-  LogoGridBlock01: LogoGridBlock01,
-  PortfolioListBlock: PortfolioListBlock,
+  TextBlock,
+  MediaBlock,
+  HcHeroBlock,
+  HcThreeColCardsBlock,
+  LogoGridBlock01,
+  PortfolioListBlock,
 };
 
 export const Blocks = (props) => {
   const blocks = props.blocks ? props.blocks : props.data;
 
   return (
-    <section class="blocks">
+    <section className="blocks">
       {blocks
         ? blocks.map(function (block, i) {
             return (
@@ -40,7 +40,7 @@ export const Blocks = (props) => {
             );
           })
         : (
-          <section class="blocks" data-empty>
+          <section className="tina-warning blocks">
             <p>No blocks found</p>
           </section>
         )}

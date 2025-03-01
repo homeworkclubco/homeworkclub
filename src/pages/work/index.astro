@@ -30,7 +30,7 @@ const projects = (await getCollection('project')).sort(
     <Layout pageSeo={page.seo}>
       <HeaderSimple title={pageTitle} subtitle={pageSubtitle} />
 
-      <section class="section" data-background-color="neutral-soft">
+      <section class="section" data-accent-color="accent" data-background-color="neutral-soft">
         <div class="container">
           <ul class="polaroidList">
             {projects.map((project) => (
