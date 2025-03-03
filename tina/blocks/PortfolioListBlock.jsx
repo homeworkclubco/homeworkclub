@@ -4,6 +4,7 @@ import "@styles/components/polaroidList.css";
 import { getBlockName } from "../utils";
 import { Actions, actionsSchema } from "./parts/Actions";
 import { tinaField } from "tinacms/dist/react";
+import { Image } from "@unpic/react";
 
 
 export const PortfolioListBlock = ({ data }) => {
@@ -29,7 +30,7 @@ export const PortfolioListBlock = ({ data }) => {
                 <a href={`/work/${project.project._sys.filename}/`} className="polaroid">
                   <div className="polaroid__inner">
                     <div className="polaroid__imageWrapper">
-                      <img
+                      <Image
                         width={690}
                         height={690}
                         src={
