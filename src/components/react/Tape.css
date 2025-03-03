@@ -1,0 +1,10 @@
+.tape {
+  --_tape-height: var(--space-2xl);
+  position: absolute;
+  top: calc(var(--_tape-height) * -0.5);
+  img {
+    object-fit: contain;
+    height: 100%;
+  }
+  height: var(--_tape-height);
+}

@@ -4,6 +4,7 @@ import { getBlockName } from "../utils";
 import { Actions, actionsSchema } from "./parts/Actions";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { tinaField } from "tinacms/dist/react";
+import { Tape } from "@components/react/Tape";
 
 export const HcThreeColCardsBlock = ({ data }) => {
   const blockName = getBlockName(data.__typename);
@@ -30,6 +31,7 @@ export const HcThreeColCardsBlock = ({ data }) => {
                 data-background-color="accent-soft"
                 data-tina-field={tinaField(card)}
               >
+                <Tape color="white" index={index} />
                 <h3 data-tina-field={tinaField(card, 'title')} className={`${blockName}-cardTitle`}>
                   {card.title}
                 </h3>
@@ -46,6 +48,8 @@ export const HcThreeColCardsBlock = ({ data }) => {
     </div>
   )
 };
+
+
 
 export const hcThreeColCardsBlockSchema = {
   name: "hcThreeColCardsBlock",

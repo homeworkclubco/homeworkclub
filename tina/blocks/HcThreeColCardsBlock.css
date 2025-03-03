@@ -15,9 +15,11 @@
 }
 
 .HcThreeColCardsBlock-cards {
+  --grid-gutter: var(--space-2xl);
   display: flex;
   gap: var(--grid-gutter);
   flex-wrap: wrap;
+  margin-top: var(--space-xl);
 
   @media (--sm) {
   }
@@ -34,7 +36,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-md);
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: var(--space-xl) var(--space-m-xl);
   box-shadow: var(--shadow-elevation-medium);
   text-align: center;
