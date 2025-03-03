@@ -18,6 +18,8 @@
     "@iconify-json/ph": "^1.2.2",
     "@radix-ui/colors": "^3.0.0",
     "@tanstack/react-virtual": "^3.11.2",
+    "@unpic/astro": "^1.0.0",
+    "@unpic/react": "^1.0.1",
     "astro": "^5.3.0",
     "astro-icon": "^1.1.5",
     "astro-seo-schema": "^5.0.0",

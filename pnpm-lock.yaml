@@ -32,6 +32,12 @@ importers:
       '@tanstack/react-virtual':
         specifier: ^3.11.2
         version: 3.11.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@unpic/astro':
+        specifier: ^1.0.0
+        version: 1.0.0(astro@5.3.0(@netlify/blobs@8.1.1)(@types/node@22.10.5)(jiti@1.21.7)(lightningcss@1.29.1)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2)(yaml@2.6.1))
+      '@unpic/react':
+        specifier: ^1.0.1
+        version: 1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       astro:
         specifier: ^5.3.0
         version: 5.3.0(@netlify/blobs@8.1.1)(@types/node@22.10.5)(jiti@1.21.7)(lightningcss@1.29.1)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2)(yaml@2.6.1)
@@ -2228,6 +2234,9 @@ packages:
   '@types/node@22.10.5':
     resolution: {integrity: sha512-F8Q+SeGimwOo86fiovQh8qiXfFEh2/ocYv7tU5pJ3EXMSSxk1Joj5wefpFK2fHTf/N6HKGSxIDBT9f3gCxXPkQ==}
 
+  '@types/pngjs@6.0.5':
+    resolution: {integrity: sha512-0k5eKfrA83JOZPppLtS2C7OUtyNAl2wKNxfyYl9Q5g9lPkgBl/9hNyAu6HuEH2J4XmIv2znEpkDd0SaZVxW6iQ==}
+
   '@types/prismjs@1.26.5':
     resolution: {integrity: sha512-AUZTa7hQ2KY5L7AmtSiqxlhWxb4ina0yd8hNbl4TWuqnv/pFP0nDMb3YrfSBf4hJVGLh2YEIBfKaBW/9UEl6IQ==}
 
@@ -2801,6 +2810,30 @@ packages:
   '@ungap/structured-clone@1.2.1':
     resolution: {integrity: sha512-fEzPV3hSkSMltkw152tJKNARhOupqbH96MZWyRjNaYZOMIzbrTeQDG+MTc6Mr2pgzFQzFxAfmhGDNP5QK++2ZA==}
 
+  '@unpic/astro@1.0.0':
+    resolution: {integrity: sha512-LC7PriiuAZ5EuD2u2Dgne5UzG+FvuyZNV0zc1ajkJXX4sUMOvj0FWjZc0pEYEgzTnlOGkN91x2nI9gEtDSOIyA==}
+    peerDependencies:
+      astro: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0-beta
+
+  '@unpic/core@1.0.1':
+    resolution: {integrity: sha512-e0cwxOhtWPd4J32rV1V6jFmDGAi1r4p/f+lDqlnx+fhgFwMTyQQKw5lL7VEthUPBHFNaNBsXNbNKwnaIs2V71Q==}
+
+  '@unpic/pixels@1.3.0':
+    resolution: {integrity: sha512-Xe3J4KU9m2NWCDZ9iwIIRYFe7VwkWEqGCy4yoKMEkjoxpcQ7TPxD+QmdTphv3yiTmrDMMIWYEEH+j4mT6dILTA==}
+
+  '@unpic/placeholder@0.1.2':
+    resolution: {integrity: sha512-O++tS97biojo5sqn5TeTt+jUjl5gWOdIQuOXe8YluTJWq4L0GM6VuTkaspNpsmxHfioJw/6YBirzOpG4t87l8Q==}
+
+  '@unpic/react@1.0.1':
+    resolution: {integrity: sha512-JmKVmf7ZhKDlVFK8yfbgiWp9K4rXXovE8mWrbkqjDJHKhDqbF5uUp7754Tk7oNSYJcvIXfH8P/nYRCfG2ca0/w==}
+    peerDependencies:
+      next: ^13.0.0 || ^14.0.0 || ^15.0.0
+      react: ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      next:
+        optional: true
+
   '@vercel/nft@0.29.1':
     resolution: {integrity: sha512-6239JJM1V9b3OjvZIjbe+47/hGxMr44FEzlbTErrqzebCaoKAHK+yvahn3gdNacybDUbTxVF8Zuh0vqaeM8aKQ==}
     engines: {node: '>=18'}
@@ -3030,6 +3063,9 @@ packages:
 
   bl@4.1.0:
     resolution: {integrity: sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==}
+
+  blurhash@2.0.5:
+    resolution: {integrity: sha512-cRygWd7kGBQO3VEhPiTgq4Wc43ctsM+o46urrmPOiuAe+07fzlSB9OJVdpgDL0jPqXUVQ9ht7aq7kxOeJHRK+w==}
 
   body-parser@1.20.3:
     resolution: {integrity: sha512-7rAxByjUMqQ3/bHJy7D6OGXvx/MMc4IqBn/X0fcM1QUcAItpZrBEYhWGem+tzXH90c+G01ypMcYJBO9Y30203g==}
@@ -4527,6 +4563,9 @@ packages:
       react:
         optional: true
 
+  jpeg-js@0.4.4:
+    resolution: {integrity: sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg==}
+
   js-cookie@2.2.1:
     resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
 
@@ -5642,6 +5681,10 @@ packages:
 
   pkg-types@1.3.1:
     resolution: {integrity: sha512-/Jm5M4RvtBFVkKWRu2BLUTNP8/M2a+UwuAX+ae4770q1qVGtfjG+WTCupoZixokjmHiry8uI+dlY8KXYV5HVVQ==}
+
+  pngjs@7.0.0:
+    resolution: {integrity: sha512-LKWqWJRhstyYo9pGvgor/ivk2w94eSjE3RGVuzLGlr3NmD8bf7RcYGze1mNdEHRP6TRP6rMuDHk5t44hnTRyow==}
+    engines: {node: '>=14.19.0'}
 
   popmotion@11.0.3:
     resolution: {integrity: sha512-Y55FLdj3UxkR7Vl3s7Qr4e9m0onSnP8W7d/xQLsoJM40vs6UKHFdygs6SWryasTZYqugMjm3BepCF4CWXDiHgA==}
@@ -6812,6 +6855,9 @@ packages:
 
   unpic@3.22.0:
     resolution: {integrity: sha512-NFhB8HgHHWkNzTxwWg6KHx8+3RZnhWFm4Axdqp9iI176iY3wskzfP16NRSJ2SSTfXzyK4W6GsBqs8iOOdvOB3g==}
+
+  unpic@4.1.2:
+    resolution: {integrity: sha512-sau6i25EUxumNIL7e0kDpPWkVw3yxghLYcEwxPvm08263UfABDxtUJPT3H55z7W15cVXJB/PEhw4z6Oc+idWCA==}
 
   unpipe@1.0.0:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
@@ -9708,6 +9754,10 @@ snapshots:
     dependencies:
       undici-types: 6.20.0
 
+  '@types/pngjs@6.0.5':
+    dependencies:
+      '@types/node': 22.10.5
+
   '@types/prismjs@1.26.5': {}
 
   '@types/react-dom@19.0.2(@types/react@19.0.2)':
@@ -10398,6 +10448,34 @@ snapshots:
 
   '@ungap/structured-clone@1.2.1': {}
 
+  '@unpic/astro@1.0.0(astro@5.3.0(@netlify/blobs@8.1.1)(@types/node@22.10.5)(jiti@1.21.7)(lightningcss@1.29.1)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2)(yaml@2.6.1))':
+    dependencies:
+      '@unpic/core': 1.0.1
+      '@unpic/pixels': 1.3.0
+      '@unpic/placeholder': 0.1.2
+      astro: 5.3.0(@netlify/blobs@8.1.1)(@types/node@22.10.5)(jiti@1.21.7)(lightningcss@1.29.1)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2)(yaml@2.6.1)
+      blurhash: 2.0.5
+
+  '@unpic/core@1.0.1':
+    dependencies:
+      unpic: 4.1.2
+
+  '@unpic/pixels@1.3.0':
+    dependencies:
+      '@types/pngjs': 6.0.5
+      jpeg-js: 0.4.4
+      pngjs: 7.0.0
+
+  '@unpic/placeholder@0.1.2':
+    dependencies:
+      blurhash: 2.0.5
+
+  '@unpic/react@1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@unpic/core': 1.0.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@vercel/nft@0.29.1(rollup@4.28.1)':
     dependencies:
       '@mapbox/node-pre-gyp': 2.0.0
@@ -10755,6 +10833,8 @@ snapshots:
       buffer: 5.7.1
       inherits: 2.0.4
       readable-stream: 3.6.2
+
+  blurhash@2.0.5: {}
 
   body-parser@1.20.3:
     dependencies:
@@ -12484,6 +12564,8 @@ snapshots:
       '@types/react': 19.0.2
       react: 18.3.1
 
+  jpeg-js@0.4.4: {}
+
   js-cookie@2.2.1: {}
 
   js-sha1@0.6.0: {}
@@ -14084,6 +14166,8 @@ snapshots:
       mlly: 1.7.4
       pathe: 2.0.2
 
+  pngjs@7.0.0: {}
+
   popmotion@11.0.3:
     dependencies:
       framesync: 6.0.1
@@ -15618,6 +15702,8 @@ snapshots:
       normalize-path: 2.1.1
 
   unpic@3.22.0: {}
+
+  unpic@4.1.2: {}
 
   unpipe@1.0.0: {}
 

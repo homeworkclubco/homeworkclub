@@ -33,7 +33,7 @@ export const Blocks = (props) => {
               <div
                 key={i}
                 data-tina-field={tinaField(block)}
-                class="block"
+                className="block"
               >
                 <Block {...block} />
               </div>

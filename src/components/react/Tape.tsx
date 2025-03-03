@@ -1,4 +1,6 @@
 import "./Tape.css";
+import { Image } from '@unpic/react'
+
 
 
 export const Tape = ({ color = 'white', index }) => {
@@ -25,7 +27,7 @@ export const Tape = ({ color = 'white', index }) => {
 
   return (
     <div className="tape">
-      <img src={tapeImage} alt="" />
+      <Image width={200} height={100} src={tapeImage} alt="" />
     </div>
   )
 }
