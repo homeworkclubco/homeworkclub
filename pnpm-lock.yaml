@@ -77,6 +77,9 @@ importers:
       schema-dts:
         specifier: ^1.1.2
         version: 1.1.2(typescript@5.7.2)
+      sharp:
+        specifier: ^0.33.5
+        version: 0.33.5
       tinacms:
         specifier: ^2.6.0
         version: 2.6.0(@types/react-dom@19.0.2(@types/react@19.0.2))(@types/react@19.0.2)(abstract-level@1.0.4)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.25.0)(sucrase@3.35.0)(typescript@5.7.2)
@@ -6217,11 +6220,6 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.7.0:
-    resolution: {integrity: sha512-DrfFnPzblFmNrIZzg5RzHegbiRWg7KMR7btwi2yjHwx06zsUbO5g613sVwEV7FTwmzJu+Io0lJe2GJ3LxqpvBQ==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.7.1:
     resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
     engines: {node: '>=10'}
@@ -8184,9 +8182,9 @@ snapshots:
   '@graphql-codegen/schema-ast@4.1.0(graphql@15.8.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 5.1.0(graphql@15.8.0)
-      '@graphql-tools/utils': 10.6.4(graphql@15.8.0)
+      '@graphql-tools/utils': 10.7.2(graphql@15.8.0)
       graphql: 15.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@graphql-codegen/typescript-operations@4.4.0(graphql@15.8.0)':
     dependencies:
@@ -8195,7 +8193,7 @@ snapshots:
       '@graphql-codegen/visitor-plugin-common': 5.6.0(graphql@15.8.0)
       auto-bind: 4.0.0
       graphql: 15.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -8207,7 +8205,7 @@ snapshots:
       '@graphql-codegen/visitor-plugin-common': 5.6.0(graphql@15.8.0)
       auto-bind: 4.0.0
       graphql: 15.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -8224,7 +8222,7 @@ snapshots:
       graphql: 15.8.0
       graphql-tag: 2.12.6(graphql@15.8.0)
       parse-filepath: 1.0.2
-      tslib: 2.6.2
+      tslib: 2.6.3
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -8234,14 +8232,14 @@ snapshots:
       '@graphql-codegen/plugin-helpers': 5.1.0(graphql@15.8.0)
       '@graphql-tools/optimize': 2.0.0(graphql@15.8.0)
       '@graphql-tools/relay-operation-optimizer': 7.0.8(graphql@15.8.0)
-      '@graphql-tools/utils': 10.6.4(graphql@15.8.0)
+      '@graphql-tools/utils': 10.7.2(graphql@15.8.0)
       auto-bind: 4.0.0
       change-case-all: 1.0.15
       dependency-graph: 0.11.0
       graphql: 15.8.0
       graphql-tag: 2.12.6(graphql@15.8.0)
       parse-filepath: 1.0.2
-      tslib: 2.6.2
+      tslib: 2.6.3
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -8538,7 +8536,7 @@ snapshots:
       https-proxy-agent: 7.0.6
       node-fetch: 2.7.0
       nopt: 8.1.0
-      semver: 7.7.0
+      semver: 7.7.1
       tar: 7.4.3
     transitivePeerDependencies:
       - encoding
@@ -13811,7 +13809,7 @@ snapshots:
 
   node-abi@3.71.0:
     dependencies:
-      semver: 7.7.0
+      semver: 7.7.1
 
   node-fetch-native@1.6.4: {}
 
@@ -14820,8 +14818,6 @@ snapshots:
 
   semver@6.3.1: {}
 
-  semver@7.7.0: {}
-
   semver@7.7.1: {}
 
   send@0.19.0:
@@ -14879,7 +14875,7 @@ snapshots:
     dependencies:
       color: 4.2.3
       detect-libc: 2.0.3
-      semver: 7.7.0
+      semver: 7.7.1
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.33.5
       '@img/sharp-darwin-x64': 0.33.5
