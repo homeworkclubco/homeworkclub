@@ -19,32 +19,42 @@ export const PortfolioListBlock = ({ data }) => {
       <div className="container" data-center-content>
         {data.title && (
           <rough-notation data-color="var(--accent-600)">
-            <h2 className="blockTitle" data-tina-field={tinaField(data.title)}>{data.title}</h2>
+            <h2 className="blockTitle" data-tina-field={tinaField(data.title)}>
+              {data.title}
+            </h2>
           </rough-notation>
         )}
 
         {data.projects && (
           <ul className="polaroidList">
             {data.projects.map((project) => (
-              <li className="polaroidList__item" data-tina-field={tinaField(project)} key={project.project.id}>
-                <perspective-card href={`/work/${project.project._sys.filename}/`} className="polaroid">
-                  <div className="polaroid__inner">
-                    <div className="polaroid__imageWrapper">
-                      <Image
-                        width={690}
-                        height={690}
-                        src={
-                          project.project.mainImage ? project.project.mainImage : 'https://via.placeholder.com/690'
-                        }
-                        alt={project.project.mainImageAlt ? project.project.mainImageAlt : ''}
-                        className="polaroid__image"
-                      />
+              <li
+                className="polaroidList__item"
+                data-tina-field={tinaField(project)}
+                key={project.project.id}
+              >
+                <perspective-card>
+                  <a href={`/work/${project.project._sys.filename}/`} className="polaroid">
+                    <div className="polaroid__inner">
+                      <div className="polaroid__imageWrapper">
+                        <Image
+                          width={690}
+                          height={690}
+                          src={
+                            project.project.mainImage
+                              ? project.project.mainImage
+                              : 'https://via.placeholder.com/690'
+                          }
+                          alt={project.project.mainImageAlt ? project.project.mainImageAlt : ''}
+                          className="polaroid__image"
+                        />
+                      </div>
+                      <div className="polaroid__body">
+                        <h3 className="polaroid__title">{project.project.title}</h3>
+                        <p className="polaroid__subtitle">{project.project.subtitle}</p>
+                      </div>
                     </div>
-                    <div className="polaroid__body">
-                      <h3 className="polaroid__title">{project.project.title}</h3>
-                      <p className="polaroid__subtitle">{project.project.subtitle}</p>
-                    </div>
-                  </div>
+                  </a>
                 </perspective-card>
               </li>
             ))}
