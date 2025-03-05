@@ -10,6 +10,7 @@ import { logoGridBlock01Schema } from "../blocks/LogoGridBlock01";
 import { portfolioListBlockSchema } from "@tina/blocks/PortfolioListBlock";
 import { mediaBlockSchema } from "@tina/blocks/MediaBlock";
 import { textBlockSchema } from "@tina/blocks/TextBlock";
+import { mediaTextBlockSchema } from "@tina/blocks/MediaTextBlock";
 
 export const defaultBlocks = [
   videoHeroBlock01Schema,
@@ -18,7 +19,8 @@ export const defaultBlocks = [
   logoGridBlock01Schema,
   portfolioListBlockSchema,
   mediaBlockSchema,
-  textBlockSchema
+  textBlockSchema,
+  mediaTextBlockSchema,
 ];
 
 function blocksField(blocks = defaultBlocks) {

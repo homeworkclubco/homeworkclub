@@ -28,7 +28,12 @@ const pageTitle = "Let's chat"
       <!-- Editable body content -->
       <TinaPageSimple {...data} client:tina />
 
-      <form method="POST" data-netlify="true">
+      <form method="POST" data-netlify="true" data-netlify-recaptcha="true">
+        <p class="hidden">
+          <label>
+            Don't fill this out if you're human: <input name="bot-field" />
+          </label>
+        </p>
         <input type="hidden" name="form-name" value="contact" />
         <div class="field">
           <label for="name" class="label">Name</label>
@@ -69,8 +74,16 @@ const pageTitle = "Let's chat"
         </div>
 
         <div class="field">
+          <div data-netlify-recaptcha="true"></div>
+        </div>
+
+        <div class="field">
           <div class="control">
-            <button type="submit" class="button">Send</button>
+            <rough-notation data-type="box" class="button-wrapper">
+              <button type="submit" class="button">
+                <span>Send</span>
+              </button>
+            </rough-notation>
           </div>
         </div>
       </form>
@@ -78,6 +91,25 @@ const pageTitle = "Let's chat"
   </section>
   <!-- <ContactPage {...data} client:tina /> -->
 </Layout>
+
+<script>
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const myForm = event.target
+    const formData = new FormData(myForm)
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => console.log('Form successfully submitted'))
+      .catch((error) => alert(error))
+  }
+
+  document.querySelector('form').addEventListener('submit', handleSubmit)
+</script>
 
 <style>
   section {

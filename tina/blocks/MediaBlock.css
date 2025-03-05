@@ -8,4 +8,12 @@
 .MediaBlock {
   padding: 0;
   overflow: hidden;
+
+  img {
+    height: auto;
+    width: 100%;
+    max-width: 1920px;
+    margin-inline: auto;
+    border-radius: var(--radius-lg);
+  }
 }

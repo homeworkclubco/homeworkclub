@@ -99,6 +99,8 @@
   --color-teal-800: #128785;
   --color-teal-900: #0c5f5d;
   --color-teal-950: #073635;
+
+  --color-highlighter: #e6ff2a;
 }
 
 [data-accent-color='primary'] {

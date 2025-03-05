@@ -318,155 +318,138 @@ const currentPath = Astro.url.pathname
 </style>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const navbar = document.querySelector('.navbar')
-
-    let lastScrollTop = 0
-    const scrollDistance = 100 // Configurable distance
-
-    function debounce(func, wait) {
-      let timeout
-      return function (...args) {
-        const later = () => {
-          clearTimeout(timeout)
-          func(...args)
-        }
-        clearTimeout(timeout)
-        timeout = setTimeout(later, wait)
-      }
-    }
-
-    function handleScroll() {
-      if (!navbar) return
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      const scrollHeight = document.documentElement.scrollHeight
-      const clientHeight = document.documentElement.clientHeight
-
-      // Top of the page
-      if (scrollTop === 0) {
-        navbar.classList.add('is-top')
-        navbar.classList.remove('is-scrolled', 'is-bottom')
-      } else {
-        navbar.classList.remove('is-top')
-      }
-
-      // Scrolled a configurable distance
-      if (scrollTop > scrollDistance) {
-        navbar.classList.add('is-scrolled')
-      } else {
-        navbar.classList.remove('is-scrolled')
-      }
-
-      // Bottom of the page
-      if (scrollTop + clientHeight >= scrollHeight) {
-        navbar.classList.add('is-bottom')
-      } else {
-        navbar.classList.remove('is-bottom')
-      }
-
-      // Scroll direction
-      if (scrollTop > lastScrollTop) {
-        navbar.classList.add('scrolling-down')
-        navbar.classList.remove('scrolling-up')
-      } else {
-        navbar.classList.add('scrolling-up')
-        navbar.classList.remove('scrolling-down')
-      }
-
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop // For Mobile or negative scrolling
-    }
-
-    window.addEventListener('scroll', debounce(handleScroll, 10))
-    handleScroll() // Initial check
-  })
-</script>
-
-<script>
-  // import Headroom from '../scripts/headroom'
-
   // document.addEventListener('astro:page-load', () => {
-  //   const header = document.querySelector('.navbar')
-  //   var headroom = new Headroom(header, {
-  //     offset: {
-  //       up: 100,
-  //       down: 200,
-  //     },
-  //     // scroll tolerance in px before state changes
-  //     tolerance: 5,
-  //   })
-  //   headroom.init()
+  const navbar = document.querySelector('.navbar')
+
+  let lastScrollTop = 0
+  const scrollDistance = 100 // Configurable distance
+
+  function debounce(func, wait) {
+    let timeout
+    return function (...args) {
+      const later = () => {
+        clearTimeout(timeout)
+        func(...args)
+      }
+      clearTimeout(timeout)
+      timeout = setTimeout(later, wait)
+    }
+  }
+
+  function handleScroll() {
+    if (!navbar) return
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    const scrollHeight = document.documentElement.scrollHeight
+    const clientHeight = document.documentElement.clientHeight
+
+    // Top of the page
+    if (scrollTop === 0) {
+      navbar.classList.add('is-top')
+      navbar.classList.remove('is-scrolled', 'is-bottom')
+    } else {
+      navbar.classList.remove('is-top')
+    }
+
+    // Scrolled a configurable distance
+    if (scrollTop > scrollDistance) {
+      navbar.classList.add('is-scrolled')
+    } else {
+      navbar.classList.remove('is-scrolled')
+    }
+
+    // Bottom of the page
+    if (scrollTop + clientHeight >= scrollHeight) {
+      navbar.classList.add('is-bottom')
+    } else {
+      navbar.classList.remove('is-bottom')
+    }
+
+    // Scroll direction
+    if (scrollTop > lastScrollTop) {
+      navbar.classList.add('scrolling-down')
+      navbar.classList.remove('scrolling-up')
+    } else {
+      navbar.classList.add('scrolling-up')
+      navbar.classList.remove('scrolling-down')
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop // For Mobile or negative scrolling
+  }
+
+  window.addEventListener('scroll', debounce(handleScroll, 10))
+  handleScroll() // Initial check
   // })
 </script>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const menuToggle = document.getElementById('menuToggle')
-    const closeMenu = document.getElementById('closeMenu')
-    const navMenu = document.getElementById('navMenu')
-    const focusableElements = navMenu?.querySelectorAll('button, a')
+  // document.addEventListener('astro:page-load', () => {
+  const menuToggle = document.getElementById('menuToggle')
+  const closeMenu = document.getElementById('closeMenu')
+  const navMenu = document.getElementById('navMenu')
+  const focusableElements = navMenu?.querySelectorAll('button, a')
 
-    function openMenu() {
-      if (!menuToggle || !navMenu || !closeMenu) return
+  function openMenu() {
+    if (!menuToggle || !navMenu || !closeMenu) return
 
-      menuToggle.setAttribute('aria-expanded', 'true')
-      // navMenu.style.display = "block";
-      navMenu.dataset.state = 'open'
-      document.body.style.overflow = 'hidden'
-      document.body.classList.add('nav-open')
-      closeMenu.focus()
+    menuToggle.setAttribute('aria-expanded', 'true')
+    // navMenu.style.display = "block";
+    navMenu.dataset.state = 'open'
+    document.body.style.overflow = 'hidden'
+    document.body.classList.add('nav-open')
+    closeMenu.focus()
+  }
+
+  function closeMenuFunc() {
+    if (!menuToggle || !navMenu) return
+
+    menuToggle.setAttribute('aria-expanded', 'false')
+    // navMenu.style.display = "none";
+    navMenu.dataset.state = 'closed'
+    document.body.style.overflow = ''
+    document.body.classList.remove('nav-open')
+    menuToggle.focus()
+  }
+
+  function handleKeyDown(event: KeyboardEvent) {
+    if (!focusableElements) return
+
+    if (event.key === 'Escape') {
+      closeMenuFunc()
+    } else if (event.key === 'Tab') {
+      const firstFocusableElement = focusableElements[0] as HTMLElement
+      const lastFocusableElement = focusableElements[focusableElements.length - 1] as HTMLElement
+
+      if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+        event.preventDefault()
+        firstFocusableElement.focus()
+      } else if (event.shiftKey && document.activeElement === firstFocusableElement) {
+        event.preventDefault()
+        lastFocusableElement.focus()
+      }
     }
+  }
 
-    function closeMenuFunc() {
-      if (!menuToggle || !navMenu) return
+  menuToggle?.addEventListener('click', openMenu)
+  closeMenu?.addEventListener('click', closeMenuFunc)
+  navMenu?.addEventListener('keydown', handleKeyDown)
 
-      menuToggle.setAttribute('aria-expanded', 'false')
+  navMenu?.addEventListener('click', (event) => {
+    if (event.target === navMenu) {
+      closeMenuFunc()
+    }
+  })
+
+  window.addEventListener('resize', () => {
+    if (!navMenu || !menuToggle) return
+
+    if (window.innerWidth > 768) {
+      // navMenu.style.display = "";
+      navMenu.dataset.state = 'open'
+      document.body.style.overflow = ''
+    } else if (menuToggle.getAttribute('aria-expanded') === 'false') {
       // navMenu.style.display = "none";
       navMenu.dataset.state = 'closed'
-      document.body.style.overflow = ''
-      document.body.classList.remove('nav-open')
-      menuToggle.focus()
     }
-
-    function handleKeyDown(event: KeyboardEvent) {
-      if (!focusableElements) return
-
-      if (event.key === 'Escape') {
-        closeMenuFunc()
-      } else if (event.key === 'Tab') {
-        const firstFocusableElement = focusableElements[0] as HTMLElement
-        const lastFocusableElement = focusableElements[focusableElements.length - 1] as HTMLElement
-
-        if (!event.shiftKey && document.activeElement === lastFocusableElement) {
-          event.preventDefault()
-          firstFocusableElement.focus()
-        } else if (event.shiftKey && document.activeElement === firstFocusableElement) {
-          event.preventDefault()
-          lastFocusableElement.focus()
-        }
-      }
-    }
-
-    menuToggle?.addEventListener('click', openMenu)
-    closeMenu?.addEventListener('click', closeMenuFunc)
-    navMenu?.addEventListener('keydown', handleKeyDown)
-
-    navMenu?.addEventListener('click', (event) => {
-      if (event.target === navMenu) {
-        closeMenuFunc()
-      }
-    })
-
-    window.addEventListener('resize', () => {
-      if (!navMenu || !menuToggle) return
-
-      if (window.innerWidth > 768) {
-        // navMenu.style.display = "";
-        navMenu.dataset.state = 'open'
-        document.body.style.overflow = ''
-      } else if (menuToggle.getAttribute('aria-expanded') === 'false') {
-        // navMenu.style.display = "none";
-        navMenu.dataset.state = 'closed'
-      }
-    })
   })
+  // })
 </script>

@@ -10,20 +10,24 @@ import { LogoGridBlock01 } from "./LogoGridBlock01";
 import { PortfolioListBlock } from "./PortfolioListBlock";
 import { MediaBlock } from "./MediaBlock";
 import { TextBlock } from "./TextBlock";
+import { MediaTextBlock, MediaTextBlockContentHeading, MediaTextBlockContentParagraphs } from "./MediaTextBlock";
 
 // Block Components
 const blockComponents = {
   // VideoHeroBlock01: VideoHeroBlock01,
   TextBlock,
   MediaBlock,
+  MediaTextBlock,
   HcHeroBlock,
   HcThreeColCardsBlock,
   LogoGridBlock01,
   PortfolioListBlock,
+  MediaTextBlockContentHeading,
+  MediaTextBlockContentParagraphs
 };
 
-export const Blocks = (props) => {
-  const blocks = props.blocks ? props.blocks : props.data;
+export const Blocks = ({blocks, data = null}) => {
+  blocks = blocks ? blocks : data;
 
   return (
     <section className="blocks">

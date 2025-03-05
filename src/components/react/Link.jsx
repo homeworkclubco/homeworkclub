@@ -5,12 +5,12 @@ import { tinaField } from 'tinacms/dist/react'
 export const Link = ({ className, link, ...rest }) => {
   return (
     <a href={link.link} className={`link ${className || ''}`} data-tina-field={tinaField(link)}>
-      <rough-hover>
+      <rough-notation data-on-hover={true} data-on-scroll={false} data-type="circle">
         <span>
           {link.label}
           <LinkIcon />
         </span>
-      </rough-hover>
+      </rough-notation>
     </a>
   )
 }

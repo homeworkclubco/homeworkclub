@@ -59,9 +59,9 @@
   transition: 0.5s all var(--easing);
   border-radius: var(--_polaroid-outer-radius);
 
-  &:hover {
+  /* &:hover {
     transform: rotate(-2deg);
-  }
+  } */
 
   &::before,
   &::after {
@@ -116,11 +116,17 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/images/polaroid-paper.jpg');
-    background-size: 50%;
+    background-image: url('/images/polaroid paper.png');
+    background-size: 50px;
     background-position: center;
     background-repeat: repeat;
-    opacity: 0.25;
+    /* opacity: 0.25; */
+  }
+}
+
+.has-no-text {
+  .polaroid__inner {
+    padding-bottom: var(--space-2xl);
   }
 }
 
@@ -151,6 +157,7 @@
   margin-block: var(--space-l) var(--space-xs);
   display: grid;
   gap: var(--space-m);
+  z-index: 1;
 }
 
 .polaroid__title {

@@ -27,7 +27,7 @@ export const PortfolioListBlock = ({ data }) => {
           <ul className="polaroidList">
             {data.projects.map((project) => (
               <li className="polaroidList__item" data-tina-field={tinaField(project)} key={project.project.id}>
-                <a href={`/work/${project.project._sys.filename}/`} className="polaroid">
+                <perspective-card href={`/work/${project.project._sys.filename}/`} className="polaroid">
                   <div className="polaroid__inner">
                     <div className="polaroid__imageWrapper">
                       <Image
@@ -45,7 +45,7 @@ export const PortfolioListBlock = ({ data }) => {
                       <p className="polaroid__subtitle">{project.project.subtitle}</p>
                     </div>
                   </div>
-                </a>
+                </perspective-card>
               </li>
             ))}
           </ul>

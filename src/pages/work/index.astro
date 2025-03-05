@@ -38,25 +38,27 @@ const projects = (await getCollection('project')).sort(
         <div class="container">
           <ul class="polaroidList">
             {projects.map((project) => (
-              <li class="polaroidList__item">
-                <a href={`/work/${project.id}/`} class="polaroid">
-                  <div class="polaroid__inner">
-                    <div class="polaroid__imageWrapper">
-                      <img
-                        width={690}
-                        height={690}
-                        src={project.data.mainImage}
-                        alt={project.data.mainImageAlt}
-                        class="polaroid__image"
-                      />
+              <li-card class="polaroidList__item">
+                <perspective-card>
+                  <a href={`/work/${project.id}/`} class="polaroid">
+                    <div class="polaroid__inner">
+                      <div class="polaroid__imageWrapper">
+                        <img
+                          width={690}
+                          height={690}
+                          src={project.data.mainImage}
+                          alt={project.data.mainImageAlt}
+                          class="polaroid__image"
+                        />
+                      </div>
+                      <div class="polaroid__body">
+                        <h3 class="polaroid__title">{project.data.title}</h3>
+                        <p class="polaroid__subtitle">{project.data.subtitle}</p>
+                      </div>
                     </div>
-                    <div class="polaroid__body">
-                      <h3 class="polaroid__title">{project.data.title}</h3>
-                      <p class="polaroid__subtitle">{project.data.subtitle}</p>
-                    </div>
-                  </div>
-                </a>
-              </li>
+                  </a>
+                </perspective-card>
+              </li-card>
             ))}
           </ul>
         </div>

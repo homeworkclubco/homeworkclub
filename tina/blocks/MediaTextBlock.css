@@ -1,0 +1,31 @@
+/* -------------------------------------------------------------------------- /
+  Media Text Block
+/ -------------------------------------------------------------------------- */
+
+/* Enable breakpoints */
+@import '/src/styles/variables/breakpoints.css';
+
+.MediaTextBlock {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .polaroid {
+    max-width: 500px;
+    transform: rotate(-10deg);
+    transform-origin: top center;
+  }
+}
+
+.MediaTextBlockContentHeading {
+  h2 {
+    font-family: var(--font-family-body);
+    font-size: var(--step-3);
+    text-transform: uppercase;
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+.MediaTextBlockContentParagraphs + .MediaTextBlockContentHeading {
+  margin-top: var(--space-2xl);
+}

@@ -1,0 +1,199 @@
+---
+import client from '../../tina/__generated__/client'
+import Layout from 'src/layouts/Layout.astro'
+import TinaPageSimple from '@tina/pages/TinaPageSimple'
+import { Button } from '@components/react/Button.jsx'
+import { Link } from '@components/react/Link'
+
+const data = await client.queries.page({ relativePath: 'about.mdx' })
+---
+
+<Layout pageSeo={data.data.page.seo}>
+  <section
+    class="header section"
+    data-background-color="neutral-soft"
+    data-accent-color="secondary"
+  >
+    <div class="container">
+      <div class="header__content">
+        <h1>The creative agency that always gets top marks</h1>
+      </div>
+      <div class="image">
+        <svg
+          style="display: none;"
+          id="emoji"
+          viewBox="0 0 72 72"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="hair"></g>
+          <g id="skin">
+            <path
+              fill="var(--accent-600)"
+              d="M18.6575,19.2409c-0.9683-1.6927-3.1256-2.2799-4.8183-1.3115c-1.6927,0.9684-2.2799,3.1256-1.3115,4.8183 c0.1552,0.2714,0.3458,0.5209,0.5667,0.742l11.5324,15.0998l2.6883,3.3878l-7.8906-10.3314 c-0.9683-1.6927-3.1256-2.2799-4.8183-1.3115s-2.2799,3.1256-1.3115,4.8183c0.1552,0.2714,0.3458,0.5209,0.5667,0.7421 L21.752,46.226l6.2707,7.899c5.467,6.2731,14.5147,5.9306,20.7863,0.465c3.6045-3.1684,5.9226-7.5482,6.5154-12.3105 c0.3858-4.2326,0.807-15.301,0.807-15.301c-0.1826-2.6008-3.1353-4.5234-3.5158-3.1802l-4.8939,9.7575l-3.3657-4.2224 l3.3657,4.2224l-3.3657-4.2224L30.8909,12.1248c-0.9683-1.6927-3.1256-2.2799-4.8183-1.3115s-2.2799,3.1256-1.3115,4.8183 c0.1552,0.2714,0.3458,0.5209,0.5667,0.742l4.2488,5.5631L36,30.4167L22.581,12.7366c-0.9683-1.6927-3.1256-2.2799-4.8183-1.3115 s-2.2799,3.1256-1.3116,4.8183c0.1552,0.2714,0.3458,0.5209,0.5667,0.7421L31.6894,36"
+            ></path>
+          </g>
+          <g id="skin-shadow"></g>
+          <g id="color"></g>
+          <g id="line">
+            <path
+              fill="none"
+              stroke="var(--neutral-950)"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M18.6575,19.2409 c-0.9683-1.6927-3.1256-2.2799-4.8183-1.3115c-1.6927,0.9684-2.2799,3.1256-1.3115,4.8183 c0.1552,0.2714,0.3458,0.5209,0.5667,0.742l11.5324,15.0998l2.6883,3.3878l-7.8906-10.3314 c-0.9683-1.6927-3.1256-2.2799-4.8183-1.3115s-2.2799,3.1256-1.3115,4.8183c0.1552,0.2714,0.3458,0.5209,0.5667,0.7421 L21.752,46.226l6.2707,7.899c5.467,6.2731,14.5147,5.9306,20.7863,0.465c3.6045-3.1684,5.9226-7.5482,6.5154-12.3105 c0.3858-4.2326,0.807-15.301,0.807-15.301c-0.1826-2.6008-3.1353-4.5234-3.5158-3.1802l-4.8939,9.7575l-3.3657-4.2224 l3.3657,4.2224l-3.3657-4.2224L30.8909,12.1248c-0.9683-1.6927-3.1256-2.2799-4.8183-1.3115s-2.2799,3.1256-1.3115,4.8183 c0.1552,0.2714,0.3458,0.5209,0.5667,0.742l4.2488,5.5631L36,30.4167L22.581,12.7366c-0.9683-1.6927-3.1256-2.2799-4.8183-1.3115 s-2.2799,3.1256-1.3116,4.8183c0.1552,0.2714,0.3458,0.5209,0.5667,0.7421L31.6894,36"
+            ></path>
+            <path
+              fill="none"
+              stroke="var(--neutral-950)"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="2"
+              d="M11.6726,42.8719c0,2.5663,1.747,4.6428,3.9059,4.6428"></path>
+            <path
+              fill="none"
+              stroke="var(--neutral-950)"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="2"
+              d="M7.0614,42.4369c0,5.5959,3.8094,10.1241,8.5171,10.1241"></path>
+            <path
+              fill="none"
+              stroke="var(--neutral-950)"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="2"
+              d="M45.2619,21.2377c0-2.5663-1.747-4.6428-3.9059-4.6428"></path>
+            <path
+              fill="none"
+              stroke="var(--neutral-950)"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="2"
+              d="M49.8731,21.6727c0-5.5959-3.8094-10.1241-8.5171-10.1241"></path>
+          </g>
+        </svg>
+
+        <svg id="hand-wave" viewBox="0 0 72 72"></svg>
+      </div>
+    </div>
+  </section>
+  <section class="section" data-background-color="neutral-soft">
+    <div class="container">
+      <TinaPageSimple {...data} client:tina />
+      <div class="prose">
+        <Button button={{ link: '/work', label: 'See our work', icon: true }} />
+      </div>
+    </div>
+  </section>
+
+  <section class="CtaBlock01 section" data-background-color="accent">
+    <div class="container">
+      <h2 class="CtaBlock01__title">Got an idea for a project?</h2>
+      <p class="CtaBlock01__body prose">
+        From developing your brand's look to creating and building a snazzy new website (or simply
+        updating your old one) - we're here to help.
+      </p>
+      <Link className={'CtaBlock01__button'} link={{ link: '/contact', label: 'Get in touch' }} />
+    </div>
+  </section>
+
+  <script>
+    import { gsap } from 'gsap/dist/gsap'
+    import rough from 'roughjs'
+
+    // gsap.registerPlugin(ScrollTrigger)
+
+    gsap.to('#hand-wave', {
+      rotation: 10,
+      duration: 1,
+      ease: 'power1.inOut',
+      yoyo: true,
+      repeat: -1,
+    })
+
+    const STROKE_WIDTH = 0.75 //4
+    const ROUGHNESS = 0.6
+    let stroke = 'black'
+
+    let sketchThis = function (original, sketched) {
+      const roughSvg = rough.svg(document.getElementById(sketched))
+      document.getElementById(sketched).textContent = '' // empty svg if has content
+      const originalSVG = document.getElementById(original)
+      const paths = originalSVG.querySelectorAll('path')
+      //console.log(paths);
+      for (let i = 0; i < paths.length; i++) {
+        let options = {
+          stroke: paths[i].getAttribute('stroke'),
+          strokeWidth: originalSVG.getAttribute('stroke-width') || STROKE_WIDTH,
+          roughness: originalSVG.getAttribute('roughness') || ROUGHNESS,
+          stroke: paths[i].getAttribute('stroke') || stroke,
+        }
+        if (paths[i].getAttribute('fill')) {
+          options.fill = paths[i].getAttribute('fill')
+          //   options.fillStyle = 'solid';
+          options.hachureGap = parseInt(options.strokeWidth) + parseInt(options.strokeWidth) / 4
+          options.fillWeight = options.strokeWidth
+          //   options.hachureAngle = 60;
+          options.hachureGap = 1
+        } else {
+          options.fill = 'none'
+          options.fillStyle = 'solid'
+        }
+        let path = roughSvg.path(paths[i].getAttribute('d'), options)
+        document.getElementById(sketched).appendChild(path)
+      }
+    }
+    sketchThis('emoji', 'hand-wave')
+
+    setInterval(function () {
+      sketchThis('emoji', 'hand-wave')
+    }, 200)
+  </script>
+</Layout>
+
+<style>
+  @import '/src/styles/variables/breakpoints.css';
+  .header {
+    padding-block-start: var(--space-4xl);
+    text-align: center;
+    .container {
+      align-items: center;
+
+      @media (--md) {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+      }
+    }
+  }
+  .header__content {
+  }
+
+  h1 {
+    font-size: var(--step-7-8);
+  }
+
+  #hand-wave {
+    max-width: 500px;
+    margin-inline: auto;
+  }
+
+  .prose {
+    width: 100%;
+  }
+
+  .CtaBlock01 {
+    text-align: center;
+  }
+
+  .CtaBlock01__title {
+    font-size: var(--step-6);
+  }
+  .body {
+  }
+</style>

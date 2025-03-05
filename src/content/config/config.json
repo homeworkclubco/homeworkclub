@@ -13,6 +13,11 @@
         "target": "_self"
       },
       {
+        "title": "About",
+        "link": "/about",
+        "target": "_self"
+      },
+      {
         "title": "Contact",
         "link": "/contact",
         "target": "_self"

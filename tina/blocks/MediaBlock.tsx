@@ -2,6 +2,7 @@ import React from 'react'
 import './MediaBlock.css'
 import { getBlockName } from '../utils'
 import type { Template } from 'tinacms'
+import { Image } from '@unpic/react'
 
 /* -------------------------------------------------------------------------- /
   TODO:
@@ -24,7 +25,7 @@ export const MediaBlock = ({ data }) => {
     >
       {data.type === 'image' ? (
         data.image ? (
-          <img src={data.image} alt={data.alt} />
+          <Image width={2000} height={2000} src={data.image} alt={data.alt} />
         ) : (
           <div className="tina-warning missing-image-warning">Please add an image in the CMS</div>
         )

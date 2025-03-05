@@ -9,6 +9,8 @@
  * - `data-multiline`: Whether the annotation should wrap across multiple lines. Default is true.
  * - `data-iterations`: Number of drawing iterations for the annotation. Default is 3.
  * - `data-duration`: Duration of the GSAP animation in seconds. Default is 1.5.
+ * - `data-on-scroll`: Whether to trigger the annotation on scroll. Default is true.
+ * - `data-on-hover`: Whether to trigger the annotation on hover. Default is false.
  *
  * Example usage:
  * ```html
@@ -28,8 +30,28 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 class RoughNotationElement extends HTMLElement {
-  connectedCallback() {
-    this.style.display = 'inline-flex' // Ensures element wraps contents correctly
+  constructor() {
+    super()
+    this.annotation = null
+    this.scrollTrigger = null
+    this.setupAnnotation = this.setupAnnotation.bind(this)
+  }
+
+  disconnectedCallback() {
+    // Clean up the scroll trigger when component is disconnected
+    if (this.scrollTrigger) {
+      this.scrollTrigger.kill()
+      this.scrollTrigger = null
+    }
+
+    // Also clean up the annotation if it exists
+    if (this.annotation) {
+      this.annotation = null
+    }
+  }
+
+  setupAnnotation() {
+    this.style.display = 'inline-flex'
 
     const target = this.firstElementChild
     if (!target) return
@@ -41,30 +63,61 @@ class RoughNotationElement extends HTMLElement {
     // Read attributes for customization
     const type = this.getAttribute('data-type') || 'underline'
     const color = this.getAttribute('data-color') || 'currentcolor'
-    const strokeWidth = parseFloat(this.getAttribute('data-stroke-width')) || 3
-    const multiline = this.hasAttribute('data-multiline') || true
-    const iterations = parseInt(this.getAttribute('data-iterations')) || 3
+    const strokeWidth = parseFloat(this.getAttribute('data-stroke-width')) || 2.5
+    const multiline = this.getAttribute('data-multiline') || true
+    const iterations = parseInt(this.getAttribute('data-iterations')) || 2
     const duration = parseFloat(this.getAttribute('data-duration')) || 1.5
-
+    const onScroll = this.getAttribute('data-on-scroll') || true
+    const onHover = this.getAttribute('data-on-hover') || false
+    
     // Create annotation
-    const annotation = annotate(target, {
+    this.annotation = annotate(target, {
       type,
       color,
       strokeWidth,
       multiline,
       iterations,
+      duration,
       animate: true,
     })
 
-    // Animate on scroll
-    ScrollTrigger.create({
-      trigger: this,
-      start: 'top 80%',
-      onEnter: () => {
-        annotation.show()
-        gsap.to(annotation, { duration, ease: 'power1.out' })
-      },
-    })
+    // Create new ScrollTrigger
+    if (onScroll == true) {
+      // if (this.getBoundingClientRect().top < window.innerHeight * 1) {
+      //   this.annotation.show()
+      // }
+
+
+      this.scrollTrigger = ScrollTrigger.create({
+        trigger: this,
+        start: 'top 80%',
+        onEnter: () => {
+          this.annotation.show()
+        },
+      }) 
+    }
+
+    if (onHover) {
+      target.addEventListener('mouseenter', () => {
+        if (this.annotation) {
+          this.annotation.hide()
+          this.annotation.show()
+        }
+      })
+
+      target.addEventListener('mouseleave', () => {
+        if (this.annotation) {
+          this.annotation.hide()
+        }
+      })
+    }
+  }
+
+  connectedCallback() {
+    this.setupAnnotation();
+
+    // Listen for Astro page transitions and re-setup when they occur
+    // document.addEventListener('astro:page-load', this.setupAnnotation)
   }
 }
 

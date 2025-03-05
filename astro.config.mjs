@@ -18,6 +18,7 @@ export default defineConfig({
     service: imageService(),
     domains: ['assets.tina.io'],
   },
+  prefetch: true,
 
   redirects: {
     '/admin': '/admin/index.html',
